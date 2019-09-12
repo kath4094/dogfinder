@@ -6,6 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dogfinder</title>
     <style>
+        header {
+            background-color: rgba(228, 229, 228, 0.51);
+            height: 70px;
+        }
+
+        nav {
+            display: flex;
+
+        }
+
+
+        .search {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .dogsaz {
+            margin: 10px;
+            padding: 10px;
+
+        }
+
+        a {
+            font-size: 1.5rem;
+        }
+
         .red {
             color: #C4242E;
 
@@ -21,14 +47,20 @@
 
         h1 {
             text-align: center;
+            font-size: 2.5rem;
         }
 
         h2 {
             text-align: center;
+            font-size: 1.5rem;
+            font-weight: 100;
         }
 
         h3 {
             text-align: center;
+            font-size: 1.5rem;
+            font-weight: 100;
+
         }
 
         .valgt {
@@ -58,7 +90,6 @@
             display: none;
         }
 
-        #filter_breeds {}
 
         .filter_options {
             display: flex;
@@ -112,6 +143,30 @@
 
         }
 
+        #menuknap {
+            width: 1vw;
+            height: 1vw;
+            background-image: url(imgs/Menu@2x.png);
+            background-size: 100%;
+            margin: 15px;
+            padding: 15px;
+            float: left;
+        }
+
+        #searchknap {
+
+            width: 1vw;
+            height: 1vw;
+            background-image: url(imgs/Path%20311@2x.png);
+            background-size: 100%;
+            margin: 15px;
+            padding: 15px;
+            float: right;
+        }
+
+
+
+
 
         @media screen and (min-width:500px) {
             nav {
@@ -119,7 +174,7 @@
             }
 
             #menuknap {
-                display: block;
+                display: flex;
             }
 
 
@@ -164,7 +219,20 @@
 
             }
 
+            #menuknap {
+                display: none;
+            }
+
+            #searchknap {
+                display: none;
+            }
+
+            nav {
+                display: flex;
+            }
+
         }
+
     </style>
 </head>
 
@@ -177,21 +245,22 @@
     </template>
     <header>
 
-        <div id="menuknap">☰</div>
-        <div></div>
+        <div id="menuknap"></div>
+        <div id="searchknap"></div>
 
         <nav>
-
-            <a class="dogsaz">Dogs A-Z</a>
-            <a class="search"></a>
-
+            <a class="search red">Search</a>
+            <a class="dogsaz red">Dogs A-Z</a>
 
         </nav>
 
 
-        <img class="logo" src="" alt="logo">
+        <img class="logo" src="" alt="">
+
     </header>
-    <section id="forside_pic"></section>
+    <section id="forside_pic">
+        <img src="" alt="">
+    </section>
 
 
     <section id="filter_breeds">
@@ -343,5 +412,8 @@
 
 
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
