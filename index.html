@@ -10,33 +10,45 @@
 
 <body>
     <template>
-        <img src="" alt="">
-        <h3 class="race_name"></h3>
-
+        <article class="data_dog">
+            <img class="billede" src="" alt="">
+            <h3 class="race_name"></h3>
+        </article>
     </template>
     <header>
 
 
-        <nav></nav>
+        <nav>
+            <a class="search"></a>
+            <a class="dogsaz">Dogs A-Z</a>
+
+        </nav>
 
 
         <img class="logo" src="" alt="logo">
     </header>
     <section id="forside_pic"></section>
+
+
     <section id="filter_breeds">
+        <h1>Filter Breeds</h1>
         <div class="filter_options">
+
             <div class="size">
                 <h2>Size</h2>
                 <button class="filter" data-size="small">Small</button>
                 <button class="filter" data-size="medium">Medium</button>
                 <button class="filter" data-size="large">Large</button>
             </div>
+
+
             <div class="living">
                 <h2>Ideal living situation</h2>
                 <button class="filter" data-living="apartment">Apartment</button>
                 <button class="filter" data-living="house">House</button>
 
             </div>
+
             <div class="temperament">
                 <h2>Temperament</h2>
                 <button class="filter" data-temperament="family">Family Dog</button>
@@ -45,10 +57,42 @@
             </div>
 
         </div>
-        <div class="race_list"></div>
+
     </section>
 
-    <script></script>
+    <section class="race_list"></section>
+
+    <script>
+        let dogs;
+        const dest = document.querySelector(".racelist");
+        const temp = document.querySelector("template");
+        let filterSize = "alle";
+        document.addEventListener("DOMContentLoaded", getJson);
+
+        async function getJson() {
+            let jsonData = await
+            fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
+            dogs = await jsonData.json();
+            showDogs();
+            addEventListenersToButtons();
+
+        }
+
+        function showDogs() {
+            dest.innerHTML = "";
+            dogs.feed.entry.forEach(dog => {
+                if (filterSize == "alle" || filter == dog.gsx$size.$t) {
+                    const clone = temp.cloneNode(true).content;
+                    clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
+                    clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
+
+                    dest.appendChild(clone);
+
+                }
+            })
+        }
+
+    </script>
 </body>
 
 </html>
