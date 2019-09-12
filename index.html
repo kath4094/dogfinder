@@ -12,7 +12,11 @@
         }
 
         img {
-            height: 300px;
+            width: 100%;
+        }
+
+        .billede {
+            width: ;
         }
 
         h1 {
@@ -33,37 +37,53 @@
 
         .race_list {
             display: grid;
-            max-width: 100%;
-            min-height: 50px;
-            justify-content: space-around;
-            grid-gap: 5x;
+            margin: 0 auto;
+            grid-gap: 10px;
+            justify-content: center;
+            min-height: 50vh;
         }
 
         .data_dog {
-            background-color: ;
-            padding: 10px;
+            padding: 20px;
+            min-height: 40vh;
         }
 
         .race_name {
             margin-bottom: 40px;
         }
 
+        .logo {}
 
+        #menuknap {
+            display: none;
+        }
 
-        #filter_breeds {
-            display: grid;
+        #filter_breeds {}
+
+        .filter_options {
+            display: flex;
             justify-content: center;
+            width: 100%;
+            height: ;
         }
 
         .size {
-            text-align: center
+            width: 310px;
+            height: 100px;
         }
 
         .living {
-            text-align: center
+            width: 310px;
+            height: 100px;
+            text-align: center;
+
         }
 
         .temperament {
+            width: 310px;
+            height: 100px;
+
+
             margin-bottom: 50px;
         }
 
@@ -93,19 +113,58 @@
         }
 
 
-        @media screen and (min-width:1000px) {
-            .race_list {
-                grid-template-columns: repeat(4, 1fr)
+        @media screen and (min-width:500px) {
+            nav {
+                display: none;
             }
+
+            #menuknap {
+                display: block;
+            }
+
+
+            .race_list {
+                width: 70px;
+
+            }
+
+
+            .data_dog {
+                width: 50vw;
+            }
+
+
+            .race_list {
+                grid-template-columns: repeat(1, 1fr);
+
+
+            }
+
+
+            .filter_options {
+                display: grid;
+
+            }
+
         }
 
-        /*
-        @media screen and (min-width:1400px) {
+        @media screen and (min-width:1000px) {
             .race_list {
-                grid-template-columns: repeat(4, 1fr)
+
+                grid-template-columns: repeat(4, 1fr);
             }
+
+            .data_dog {
+                max-width: 20vw;
+
+            }
+
+            .filter_options {
+                display: flex;
+
+            }
+
         }
-*/
     </style>
 </head>
 
@@ -118,8 +177,11 @@
     </template>
     <header>
 
+        <div id="menuknap">☰</div>
+        <div></div>
 
         <nav>
+
             <a class="dogsaz">Dogs A-Z</a>
             <a class="search"></a>
 
@@ -133,7 +195,7 @@
 
 
     <section id="filter_breeds">
-        <h1>Filter Breeds</h1>
+        <h1 class="red">Filter Breeds</h1>
         <div class="filter_options">
             <div class="size">
                 <h2>Size</h2>
@@ -283,37 +345,3 @@
         }
     </script>
 </body></html>
-
-
-
-<!--
-
-       h3 {
-            text-align: center;
-        }
-
-        .valgt {
-            background-color: red;
-        }
-
-        .data_dog {
-            background-color: #ffffff;
-            padding: 10px;
-            border: 5px solid black;
-
-
-
-        }
-
-        img {
-            height: 200px;
-        }
-
-
-        .race_list {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            max-width: 1000px;
-            margin: auto;
-            grid-gap: 5x;
-        }-->
