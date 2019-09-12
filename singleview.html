@@ -1,5 +1,23 @@
-       <img class="billede" src="" alt="">
-        <h3 class="race_name"></h3>
+
+       <!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="dogsaz">Dogs A-Z</a>
+            <a class="search"></a>
+        </nav>
+    </header>
+    <section>
+        <h1 class="race_name"></h1>
+        <img class="billede" src="" alt="">
         <h4>Recommended for</h4>
         <p class="recommend"></p>
         <h4>Temperament</h4>
@@ -8,3 +26,43 @@
         <p class="health"></p>
         <h4>Allergy friendly</h4>
         <p class="allergy"></p>
+    </section>
+
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let race = urlParams.get("race");
+        let dogs;
+
+        document.addEventListener("DOMContentLoaded", getJson);
+
+        async function getJson() {
+            let jsonData = await
+            fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
+            dogs = await jsonData.json();
+            showDog();
+
+
+        }
+
+        function showDog() {
+            dogs.feed.entry.forEach(dog => {
+                if (dog.gsx$race.$t == race) {
+                    document.querySelector("h1").textContent = dog.gsx$race.$t;
+                    document.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
+                    document.querySelector(".recommend").textContent = dog.gsx$recommend.$t;
+                    document.querySelector(".temp_info").textContent = dog.gsx$tempinfo.$t;
+                    document.querySelector(".health").textContent = dog.gsx$health.$t;
+                    document.querySelector(".allergy").textContent = dog.gsx$allergyfriendly.$t;
+
+
+
+
+                }
+            })
+
+        }
+    </script>
+</body></html>
+
+
