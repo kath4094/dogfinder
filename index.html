@@ -68,6 +68,7 @@
         const temp = document.querySelector("template");
         let filterSize = "alle";
         let filterLiving = "alle";
+        let filterTemperament = "alle";
 
         document.addEventListener("DOMContentLoaded", getJson);
 
@@ -78,6 +79,9 @@
             showDogs();
             addEventListenersToSize();
             addEventListenersToLiving();
+            addEventListenersToTemperament();
+
+
 
 
         }
@@ -85,7 +89,7 @@
         function showDogs() {
             dest.innerHTML = "";
             dogs.feed.entry.forEach(dog => {
-                if ((filterSize == "alle" || filterSize == dog.gsx$size.$t) && (filterLiving == "alle" || filterLiving == dog.gsx$living.$t)) {
+                if (((filterSize == "alle" || filterSize == dog.gsx$size.$t) && (filterLiving == "alle" || filterLiving == dog.gsx$living.$t) && (filterTemperament == "alle" || filterTemperament == dog.gsx$temperament.$t))) {
                     const clone = temp.cloneNode(true).content;
                     clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
                     clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
@@ -113,6 +117,14 @@
 
         }
 
+        function addEventListenersToTemperament() {
+            document.querySelectorAll(".filter3").forEach(elm => {
+                elm.addEventListener("click", filtrering3);
+            })
+
+
+        }
+
         function filtrering() {
             console.log("filter1");
             filterSize = this.dataset.size;
@@ -127,6 +139,17 @@
         function filtrering2() {
             console.log("filter2");
             filterLiving = this.dataset.living;
+
+
+
+            showDogs();
+
+
+        }
+
+        function filtrering3() {
+            console.log("filter3");
+            filterTemperament = this.dataset.temperament;
 
 
 
