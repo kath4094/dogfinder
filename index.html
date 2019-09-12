@@ -6,9 +6,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dogfinder</title>
     <style>
+        .red {
+            color: #C4242E;
+
+        }
+
+        img {
+            height: 300px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
         .valgt {
             background-color: red;
         }
+
+        .race_list {
+            display: grid;
+            max-width: 100%;
+            min-height: 50px;
+            justify-content: space-around;
+            grid-gap: 5x;
+        }
+
+        .data_dog {
+            background-color: ;
+            padding: 10px;
+        }
+
+        .race_name {
+            margin-bottom: 40px;
+        }
+
+
+
+        #filter_breeds {
+            display: grid;
+            justify-content: center;
+        }
+
+        .size {
+            text-align: center
+        }
+
+        .living {
+            text-align: center
+        }
+
+        .temperament {
+            margin-bottom: 50px;
+        }
+
+        .filter {
+            width: 100px;
+            height: 25px;
+            background-color: rgba(228, 229, 228, 0.51);
+            box-shadow: 2px 2px 2px 0px #E4E5E4;
+            border: 1px;
+        }
+
+        .filter2 {
+            width: 100px;
+            height: 25px;
+            background-color: rgba(228, 229, 228, 0.51);
+            box-shadow: 2px 2px 2px 0px #E4E5E4;
+            border: 1px;
+        }
+
+        .filter3 {
+            width: 100px;
+            height: 25px;
+            background-color: rgba(228, 229, 228, 0.51);
+            box-shadow: 2px 2px 2px 0px #E4E5E4;
+            border: 1px;
+
+        }
+
+
+        @media screen and (min-width:1000px) {
+            .race_list {
+                grid-template-columns: repeat(4, 1fr)
+            }
+        }
+
+        /*
+        @media screen and (min-width:1400px) {
+            .race_list {
+                grid-template-columns: repeat(4, 1fr)
+            }
+        }
+*/
     </style>
 </head>
 
@@ -38,7 +135,6 @@
     <section id="filter_breeds">
         <h1>Filter Breeds</h1>
         <div class="filter_options">
-
             <div class="size">
                 <h2>Size</h2>
                 <button class="filter" data-size="small">Small</button>
@@ -85,10 +181,6 @@
             addEventListenersToSize();
             addEventListenersToLiving();
             addEventListenersToTemperament();
-
-
-
-
         }
 
         function showDogs() {
@@ -191,3 +283,37 @@
         }
     </script>
 </body></html>
+
+
+
+<!--
+
+       h3 {
+            text-align: center;
+        }
+
+        .valgt {
+            background-color: red;
+        }
+
+        .data_dog {
+            background-color: #ffffff;
+            padding: 10px;
+            border: 5px solid black;
+
+
+
+        }
+
+        img {
+            height: 200px;
+        }
+
+
+        .race_list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 1000px;
+            margin: auto;
+            grid-gap: 5x;
+        }-->
