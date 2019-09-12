@@ -67,6 +67,7 @@
         const dest = document.querySelector(".race_list");
         const temp = document.querySelector("template");
         let filterSize = "alle";
+
         document.addEventListener("DOMContentLoaded", getJson);
 
         async function getJson() {
@@ -74,6 +75,7 @@
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
             dogs = await jsonData.json();
             showDogs();
+            addEventListenersToButtons();
 
 
         }
@@ -81,7 +83,7 @@
         function showDogs() {
             dest.innerHTML = "";
             dogs.feed.entry.forEach(dog => {
-                if (filterSize == "alle" || filter == dog.gsx$size.$t) {
+                if (filterSize == "alle" || filterSize == dog.gsx$size.$t) {
                     const clone = temp.cloneNode(true).content;
                     clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
                     clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
@@ -90,6 +92,19 @@
 
                 }
             })
+        }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+        }
+
+        function filtrering() {
+            filterSize = this.dataset.size;
+            showDogs();
+
+
         }
     </script>
 </body></html>
