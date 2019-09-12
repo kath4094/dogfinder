@@ -64,7 +64,7 @@
 
     <script>
         let dogs;
-        const dest = document.querySelector(".racelist");
+        const dest = document.querySelector(".race_list");
         const temp = document.querySelector("template");
         let filterSize = "alle";
         document.addEventListener("DOMContentLoaded", getJson);
@@ -74,7 +74,7 @@
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
             dogs = await jsonData.json();
             showDogs();
-            addEventListenersToButtons();
+
 
         }
 
@@ -91,8 +91,5 @@
                 }
             })
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
