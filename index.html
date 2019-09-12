@@ -44,16 +44,16 @@
 
             <div class="living">
                 <h2>Ideal living situation</h2>
-                <button class="filter" data-living="apartment">Apartment</button>
-                <button class="filter" data-living="house">House</button>
+                <button class="filter2" data-living="apartment">Apartment</button>
+                <button class="filter2" data-living="house">House</button>
 
             </div>
 
             <div class="temperament">
                 <h2>Temperament</h2>
-                <button class="filter" data-temperament="family">Family Dog</button>
-                <button class="filter" data-temperament="guard">Guard Dog</button>
-                <button class="filter" data-temperament="train">Easy to train</button>
+                <button class="filter3" data-temperament="family">Family Dog</button>
+                <button class="filter3" data-temperament="guard">Guard Dog</button>
+                <button class="filter3" data-temperament="train">Easy to train</button>
             </div>
 
         </div>
@@ -67,6 +67,7 @@
         const dest = document.querySelector(".race_list");
         const temp = document.querySelector("template");
         let filterSize = "alle";
+        let filterLiving = "alle";
 
         document.addEventListener("DOMContentLoaded", getJson);
 
@@ -75,7 +76,8 @@
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
             dogs = await jsonData.json();
             showDogs();
-            addEventListenersToButtons();
+            addEventListenersToSize();
+            addEventListenersToLiving();
 
 
         }
@@ -83,7 +85,7 @@
         function showDogs() {
             dest.innerHTML = "";
             dogs.feed.entry.forEach(dog => {
-                if (filterSize == "alle" || filterSize == dog.gsx$size.$t) {
+                if ((filterSize == "alle" || filterSize == dog.gsx$size.$t) && (filterLiving == "alle" || filterLiving == dog.gsx$living.$t)) {
                     const clone = temp.cloneNode(true).content;
                     clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
                     clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
@@ -94,14 +96,40 @@
             })
         }
 
-        function addEventListenersToButtons() {
+        function addEventListenersToSize() {
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.addEventListener("click", filtrering);
             })
+
+
+        }
+
+
+        function addEventListenersToLiving() {
+            document.querySelectorAll(".filter2").forEach(elm => {
+                elm.addEventListener("click", filtrering2);
+            })
+
+
         }
 
         function filtrering() {
+            console.log("filter1");
             filterSize = this.dataset.size;
+
+
+
+            showDogs();
+
+
+        }
+
+        function filtrering2() {
+            console.log("filter2");
+            filterLiving = this.dataset.living;
+
+
+
             showDogs();
 
 
