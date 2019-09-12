@@ -14,7 +14,6 @@
             font-style: normal;
         }
 
-
         header {
             background-color: rgba(228, 229, 228, 0.51);
             height: 70px;
@@ -22,36 +21,10 @@
 
         nav {
             display: flex;
-
-        }
-
-
-        .search {
-            margin: 10px;
-            padding: 10px;
-        }
-
-        .dogsaz {
-            margin: 10px;
-            padding: 10px;
-
-        }
-
-        a {
-            font-size: 1.5rem;
-        }
-
-        .red {
-            color: #C4242E;
-
         }
 
         img {
             width: 100%;
-        }
-
-        .billede {
-            width: ;
         }
 
         h1 {
@@ -70,11 +43,30 @@
             text-align: center;
             font-size: 1.5rem;
             font-weight: 100;
+        }
 
+        a {
+            font-size: 1.5rem;
+        }
+
+        /*En class som tilføjer en farve og er brugt i html .dogsaz .search h1 */
+        .red {
+            color: #C4242E;
         }
 
         .valgt {
             background-color: red;
+        }
+
+        .search {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .dogsaz {
+            margin: 10px;
+            padding: 10px;
+
         }
 
         .race_list {
@@ -93,13 +85,6 @@
         .race_name {
             margin-bottom: 40px;
         }
-
-        .logo {}
-
-        #menuknap {
-            display: none;
-        }
-
 
         .filter_options {
             display: flex;
@@ -123,34 +108,15 @@
         .temperament {
             width: 310px;
             height: 100px;
-
-
             margin-bottom: 50px;
         }
 
-        .filter {
+        .filter_regler {
             width: 100px;
             height: 25px;
             background-color: rgba(228, 229, 228, 0.51);
             box-shadow: 2px 2px 2px 0px #E4E5E4;
             border: 1px;
-        }
-
-        .filter2 {
-            width: 100px;
-            height: 25px;
-            background-color: rgba(228, 229, 228, 0.51);
-            box-shadow: 2px 2px 2px 0px #E4E5E4;
-            border: 1px;
-        }
-
-        .filter3 {
-            width: 100px;
-            height: 25px;
-            background-color: rgba(228, 229, 228, 0.51);
-            box-shadow: 2px 2px 2px 0px #E4E5E4;
-            border: 1px;
-
         }
 
         #menuknap {
@@ -174,11 +140,8 @@
             float: right;
         }
 
-
-
-
-
         @media screen and (min-width:500px) {
+
             nav {
                 display: none;
             }
@@ -187,46 +150,35 @@
                 display: flex;
             }
 
-
             .race_list {
                 width: 70px;
-
             }
-
 
             .data_dog {
                 width: 50vw;
             }
 
-
             .race_list {
                 grid-template-columns: repeat(1, 1fr);
-
-
             }
-
 
             .filter_options {
                 display: grid;
-
             }
-
         }
 
         @media screen and (min-width:1000px) {
-            .race_list {
 
+            .race_list {
                 grid-template-columns: repeat(4, 1fr);
             }
 
             .data_dog {
                 max-width: 20vw;
-
             }
 
             .filter_options {
                 display: flex;
-
             }
 
             #menuknap {
@@ -278,24 +230,24 @@
         <div class="filter_options">
             <div class="size">
                 <h2>Size</h2>
-                <button class="filter" data-size="small">Small</button>
-                <button class="filter" data-size="medium">Medium</button>
-                <button class="filter" data-size="large">Large</button>
+                <button class="filter filter_regler" data-size="small">Small</button>
+                <button class="filter filter_regler" data-size="medium">Medium</button>
+                <button class="filter filter_regler" data-size="large">Large</button>
             </div>
 
 
             <div class="living">
                 <h2>Ideal living situation</h2>
-                <button class="filter2" data-living="apartment">Apartment</button>
-                <button class="filter2" data-living="house">House</button>
+                <button class="filter2 filter_regler" data-living="apartment">Apartment</button>
+                <button class="filter2 filter_regler" data-living="house">House</button>
 
             </div>
 
             <div class="temperament">
                 <h2>Temperament</h2>
-                <button class="filter3" data-temperament="family">Family Dog</button>
-                <button class="filter3" data-temperament="guard">Guard Dog</button>
-                <button class="filter3" data-temperament="train">Easy to train</button>
+                <button class="filter3 filter_regler" data-temperament="family">Family Dog</button>
+                <button class="filter3 filter_regler" data-temperament="guard">Guard Dog</button>
+                <button class="filter3 filter_regler" data-temperament="train">Easy to train</button>
             </div>
 
         </div>
