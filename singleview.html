@@ -1,31 +1,124 @@
-
-       <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="">
+    <style>
+        /* BILLEDE*/
+
+        img {
+            width: 100%;
+            margin: 1.5rem auto;
+        }
+
+        /* TEKST */
+
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            font-weight: 300;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-family: sans-serif;
+            font-weight: 300;
+            color: red;
+
+
+
+        }
+
+        p {
+            font-family: sans-serif;
+            font-weight: 300;
+
+        }
+
+        /* CONTAINER */
+
+
+        section {
+            max-width: 1200px;
+            margin: 4rem auto;
+        }
+
+        .info {
+            margin-left: 2rem;
+            max-width: 65vw;
+        }
+
+        /* MEDIA QUERY */
+
+        @media screen and (min-width: 1000px) {
+
+            section {
+
+                display: grid;
+                height: 100vh;
+
+                grid-template-areas:
+                    "sidebar sidebar header header header"
+                    "sidebar sidebar main main main"
+                    "sidebar sidebar main main main"
+                    "sidebar sidebar main main main";
+                grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+            }
+
+            img {
+                grid-area: sidebar;
+            }
+
+            h1 {
+                grid-area: header;
+                text-align: start;
+                padding-top: 2rem;
+                font-size: 3.5rem;
+            }
+
+            .info {
+                grid-area: main;
+                max-width: 600px;
+                margin-left: 0;
+
+            }
+
+
+
+
+
+
+        }
+
+    </style>
 </head>
 
 <body>
+
     <header>
         <nav>
             <a class="dogsaz">Dogs A-Z</a>
             <a class="search"></a>
         </nav>
     </header>
+
     <section>
         <h1 class="race_name"></h1>
         <img class="billede" src="" alt="">
-        <h4>Recommended for</h4>
-        <p class="recommend"></p>
-        <h4>Temperament</h4>
-        <p class="temp_info"></p>
-        <h4>Health</h4>
-        <p class="health"></p>
-        <h4>Allergy friendly</h4>
-        <p class="allergy"></p>
+
+        <div class="info">
+            <h2>Recommended for</h2>
+            <p class="recommend"></p>
+            <h2>Temperament</h2>
+            <p class="temp_info"></p>
+            <h2>Health</h2>
+            <p class="health"></p>
+            <h2>Allergy friendly</h2>
+            <p class="allergy"></p>
+        </div>
     </section>
 
 
@@ -62,7 +155,8 @@
             })
 
         }
+
     </script>
-</body></html>
+</body>
 
-
+</html>
