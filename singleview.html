@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <style>
+        /* FARVE CLASS*/
+
+        .red {
+            color: #C4242E;
+        }
+
         /* BILLEDE*/
 
         img {
@@ -26,9 +32,10 @@
             font-family: sans-serif;
             font-weight: 300;
             color: red;
+        }
 
-
-
+        a {
+            font-size: 1.5rem;
         }
 
         p {
@@ -50,7 +57,66 @@
             max-width: 65vw;
         }
 
+        header {
+            background-color: rgba(228, 229, 228, 0.51);
+            height: 70px;
+        }
+
+        nav {
+            display: flex;
+        }
+
+
+        .search {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .dogsaz {
+            margin: 10px;
+            padding: 10px;
+
+        }
+
+        #menuknap {
+            width: 1vw;
+            height: 1vw;
+            background-image: url(imgs/Menu@2x.png);
+            background-size: 100%;
+            margin: 15px;
+            padding: 15px;
+            float: left;
+        }
+
+        #searchknap {
+
+            width: 1vw;
+            height: 1vw;
+            background-image: url(imgs/Path%20311@2x.png);
+            background-size: 100%;
+            margin: 15px;
+            padding: 15px;
+            float: right;
+        }
+
+
         /* MEDIA QUERY */
+
+
+
+        @media screen and (min-width:500px) {
+
+            nav {
+                display: none;
+            }
+
+            #menuknap {
+                display: flex;
+            }
+
+
+        }
+
 
         @media screen and (min-width: 1000px) {
 
@@ -88,21 +154,39 @@
 
 
 
+            #menuknap {
+                display: none;
+            }
 
+            #searchknap {
+                display: none;
+            }
+
+            nav {
+                display: flex;
+            }
 
 
         }
-
     </style>
 </head>
 
 <body>
 
     <header>
+
+        <div id="menuknap"></div>
+        <div id="searchknap"></div>
+
         <nav>
-            <a class="dogsaz">Dogs A-Z</a>
-            <a class="search"></a>
+            <a class="search red">Search</a>
+            <a class="dogsaz red">Dogs A-Z</a>
+
         </nav>
+
+
+        <img class="logo" src="" alt="">
+
     </header>
 
     <section>
@@ -155,8 +239,5 @@
             })
 
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
