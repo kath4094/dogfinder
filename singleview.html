@@ -12,6 +12,13 @@
             color: #C4242E;
         }
 
+        /* Diverse CLASS*/
+
+        .hide {
+            display: none;
+        }
+
+
         /* BILLEDE*/
 
         img {
@@ -44,6 +51,22 @@
 
         }
 
+        #sidebar a {
+            color: #C4242E;
+            font-weight: 600;
+            font-family: sans-serif;
+            transition: 0.3s;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-block;
+            padding: 20px;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            color: #0F0404;
+        }
+
         /* CONTAINER */
 
 
@@ -58,7 +81,7 @@
         }
 
         header {
-            background-color: rgba(228, 229, 228, 0.51);
+
             height: 70px;
         }
 
@@ -99,6 +122,21 @@
             float: right;
         }
 
+        #red_line {
+            position: absolute;
+            top: 12%;
+            right: 5%;
+            width: 90%;
+            height: 0.3%;
+            background-image: url(imgs/Rectangle%205.png);
+            background-size: 100%;
+        }
+
+        #sidebar {
+            width: 300px;
+            height: 0.1px;
+        }
+
 
         /* MEDIA QUERY */
 
@@ -112,6 +150,19 @@
 
             #menuknap {
                 display: flex;
+            }
+
+            form {
+                position: relative;
+            }
+
+            input {
+                position: absolute;
+                font-family: blacker-sans-extrabold;
+                right: 65px;
+                top: 25px;
+                width: 80px;
+                height: 15px;
             }
 
 
@@ -152,8 +203,6 @@
 
             }
 
-
-
             #menuknap {
                 display: none;
             }
@@ -166,6 +215,13 @@
                 display: flex;
             }
 
+            form {
+                display: none;
+            }
+
+            #sidebar {
+                display: none;
+            }
 
         }
     </style>
@@ -176,11 +232,24 @@
     <header>
 
         <div id="menuknap"></div>
-        <div id="searchknap"></div>
+        <div id="sidebar" class="hide">
+            <a href="index.html">Forside</a>
+            <a href="abc.html">Dogs A-Z</a>
+
+
+        </div>
+
+
+        <form>
+            <input type="text" name="" value="Search">
+
+            <div id="searchknap"></div>
+        </form>
 
         <nav>
-            <a class="search red">Search</a>
-            <a class="dogsaz red">Dogs A-Z</a>
+            <a class="search">Search</a>
+            <a class="dogsaz">Dogs A-Z</a>
+            <div id="red_line"></div>
 
         </nav>
 
@@ -212,6 +281,7 @@
         let dogs;
 
         document.addEventListener("DOMContentLoaded", getJson);
+        document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
 
         async function getJson() {
             let jsonData = await
@@ -237,6 +307,16 @@
 
                 }
             })
+
+        }
+
+
+        function sidebarDisplay() {
+            console.log("sidebarDisplay");
+            //toggle af class hide
+            document.querySelector("#sidebar").classList.toggle("hide");
+            //Her tjekkes der om elementet indeholder class hide
+            let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
         }
     </script>
