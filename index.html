@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dogfinder</title>
     <style>
-
         /* Font Face*/
 
-             @font-face {
+        @font-face {
             font-family: blacker-sans-extrabold;
             src: url('fonts/blacker-sans-extrabold/blacker-sans-extrabold-trial-webfont.woff2') format('woff2'),
                 url('fonts/blacker-sans-extrabold/blacker-sans-extrabold-trial-webfont.woff') format('woff');
@@ -28,7 +27,7 @@
             display: none;
         }
 
-           .valgt {
+        .valgt {
             background-color: red;
         }
 
@@ -71,7 +70,7 @@
 
         /* CONTAINER */
 
-             header {
+        header {
 
             height: 70px;
         }
@@ -92,7 +91,7 @@
         }
 
 
-                #red_line {
+        #red_line {
             position: absolute;
             top: 12%;
             right: 5%;
@@ -103,7 +102,7 @@
         }
 
 
-          #menuknap {
+        #menuknap {
 
             width: 1vw;
             height: 1vw;
@@ -131,7 +130,8 @@
             height: 0.1px;
         }
 
-        #sidebar a {color: #C4242E;
+        #sidebar a {
+            color: #C4242E;
             font-weight: 600;
             font-family: sans-serif;
             transition: 0.3s;
@@ -145,7 +145,6 @@
         #sidebar a:hover {
             color: #0F0404;
         }
-
 
         .race_list {
             display: grid;
@@ -201,7 +200,7 @@
 
 
         /* MEDIA QUERY */
-  @media screen and (min-width:500px) {
+        @media screen and (min-width:500px) {
 
             nav {
                 display: none;
@@ -276,19 +275,6 @@
             }
 
         }
-
-
-
-
-
-
-
-
-        /*En class som tilføjer en farve og er brugt i html .dogsaz .search h1 */
-
-
-
-
     </style>
 </head>
 
@@ -330,7 +316,7 @@
 
     </header>
     <section id="forside_pic">
-        <img src="" alt="">
+        <img src="imgs/dogs-01.06.jpg" alt="">
     </section>
 
 
@@ -494,37 +480,5 @@
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
         }
-
     </script>
-</body>
-
-</html>
-
-
-
-<!--
-
-
-                 function menuKnapChange() {
-            console.log("menuKnapChange");
-            //toggle af class hide
-            document.querySelector("#sidebar").classList.toggle("hide");
-            //Her tjekkes der om elementet indeholder class hide
-            let menuKnapToggle = document.querySelector("#menuknap, menuclose").classList.contains("hide");
-            if (menuKnapToggle == true) {
-                document.querySelector("#menuknap").src = "imgs/Menu@2x.png";
-            } else {
-                document.querySelector("#menuclose").src = "imgs/No@2x.png";
-            }
-        }
-
-            /*
-            width: 1vw;
-            height: 1vw;
-            background-image: url(imgs/Menu@2x.png);
-            background-size: 100%;
-            margin: 15px;
-            padding: 15px;
-            float: left;
-*/
--->
+</body></html>
