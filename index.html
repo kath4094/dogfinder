@@ -15,7 +15,7 @@
         }
 
         header {
-            background-color: rgba(228, 229, 228, 0.51);
+
             height: 70px;
         }
 
@@ -51,11 +51,23 @@
 
         a {
             font-size: 1.5rem;
+            text-decoration-line: none;
+
         }
 
         /*En class som tilføjer en farve og er brugt i html .dogsaz .search h1 */
         .red {
             color: #C4242E;
+        }
+
+        #red_line {
+            position: absolute;
+            top: 12%;
+            right: 5%;
+            width: 90%;
+            height: 0.3%;
+            background-image: url(imgs/Rectangle%205.png);
+            background-size: 100%;
         }
 
         .valgt {
@@ -169,6 +181,19 @@
             .filter_options {
                 display: grid;
             }
+
+            form {
+                position: relative;
+            }
+
+            input {
+                position: absolute;
+                font-family: sans-serif;
+                right: 65px;
+                top: 25px;
+                width: 80px;
+                height: 15px;
+            }
         }
 
         @media screen and (min-width:1000px) {
@@ -197,8 +222,11 @@
                 display: flex;
             }
 
-        }
+            form {
+                display: none;
+            }
 
+        }
     </style>
 </head>
 
@@ -211,12 +239,19 @@
     </template>
     <header>
 
-        <div id="menuknap"></div>
-        <div id="searchknap"></div>
+        <form>
+
+            <div id="menuknap"></div>
+            <input type="text" name="" value="Search">
+
+            <div id="searchknap"></div>
+        </form>
+
 
         <nav>
-            <a class="search red">Search</a>
-            <a class="dogsaz red">Dogs A-Z</a>
+            <a class="search">Search</a>
+            <a class="dogsaz" href="abc.html">Dogs A-Z</a>
+            <div id="red_line"></div>
 
         </nav>
 
@@ -378,8 +413,5 @@
 
 
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
