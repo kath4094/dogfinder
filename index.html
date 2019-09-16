@@ -77,6 +77,10 @@
 
         nav {
             display: flex;
+            border-bottom: solid red;
+            border-bottom-width: thin;
+            font-family: sans-serif;
+
         }
 
 
@@ -196,6 +200,10 @@
             border: 1px;
         }
 
+        .chosen {
+            background-color: red;
+        }
+
 
 
 
@@ -204,6 +212,11 @@
 
             nav {
                 display: none;
+            }
+
+
+            #forside_pic {
+                margin-top: 2rem;
             }
 
             #menuknap {
@@ -305,9 +318,9 @@
 
 
         <nav>
-            <a class="search">Search</a>
-            <a class="dogsaz" href="abc.html">Dogs A-Z</a>
-            <div id="red_line"></div>
+            <a class="search">search</a>
+            <a class="dogsaz" href="abc.html">dogs a-z</a>
+
 
         </nav>
 
@@ -421,10 +434,10 @@
 
 
             document.querySelectorAll(".filter").forEach(elm => {
-                elm.classList.remove("valgt");
+                elm.classList.remove("chosen");
 
             });
-            this.classList.add("valgt");
+            this.classList.add("chosen");
 
 
 
@@ -438,10 +451,11 @@
             filterLiving = this.dataset.living;
 
             document.querySelectorAll(".filter2").forEach(elm => {
-                elm.classList.remove("valgt");
+                elm.classList.remove("chosen");
 
             });
-            this.classList.add("valgt");
+            this.classList.add("chosen");
+
 
 
 
@@ -457,10 +471,10 @@
             filterTemperament = this.dataset.temperament;
 
             document.querySelectorAll(".filter3").forEach(elm => {
-                elm.classList.remove("valgt");
+                elm.classList.remove("chosen");
 
             });
-            this.classList.add("valgt");
+            this.classList.add("chosen");
 
 
 
