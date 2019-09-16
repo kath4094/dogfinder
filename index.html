@@ -151,17 +151,6 @@
 
         }
 
-        #menuclose {
-            display: none;
-            width: 1vw;
-            height: 1vw;
-            background-image: url(imgs/No@2x.png);
-            background-size: 100%;
-            margin: 15px;
-            padding: 15px;
-            float: left;
-        }
-
         #searchknap {
 
             width: 1vw;
@@ -284,7 +273,6 @@
 
 
         <div id="menuknap"></div>
-        <div id="menuclose"></div>
         <div id="sidebar" class="hide">
             <a href="index.html">Forside</a>
             <a href="abc.html">Dogs A-Z</a>
@@ -356,11 +344,6 @@
 
         document.addEventListener("DOMContentLoaded", getJson);
         document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
-        document.querySelector("#menuclose").addEventListener("click", menuKnapChange);
-        document.querySelector("#menuknap").addEventListener("click", menuKnapChange);
-
-
-
 
         async function getJson() {
             let jsonData = await
@@ -478,11 +461,7 @@
             document.querySelector("#sidebar").classList.toggle("hide");
             //Her tjekkes der om elementet indeholder class hide
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
-            if (menuKnapErSkjult == true) {
-                document.querySelector("#menuknap").src = "imgs/Menu@2x.png";
-            } else {
-                document.querySelector("#menuknap").src = "imgs/No@2x.png";
-            }
+
         }
     </script>
 </body></html>
