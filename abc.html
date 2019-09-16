@@ -1,50 +1,379 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="da">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="">
+    <title>dogfinder</title>
+    <style>
+        @font-face {
+            font-family: blacker-sans-extrabold;
+            src: url('fonts/blacker-sans-extrabold/blacker-sans-extrabold-trial-webfont.woff2') format('woff2'),
+                url('fonts/blacker-sans-extrabold/blacker-sans-extrabold-trial-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        header {
+            height: 70px;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: blacker-sans-extrabold;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 100;
+            font-family: blacker-sans-extrabold;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 100;
+            font-family: blacker-sans-extrabold;
+        }
+
+        a {
+            font-size: 1.5rem;
+            font-family: blacker-sans-extrabold;
+
+        }
+
+        /*En class som tilføjer en farve og er brugt i html .dogsaz .search h1 */
+        .red {
+            color: #C4242E;
+        }
+
+        #red_line {
+            position: absolute;
+            top: 12%;
+            right: 5%;
+            width: 90%;
+            height: 0.3%;
+            background-image: url(imgs/Rectangle%205.png);
+            background-size: 100%;
+        }
+
+        #forside_pic {}
+
+        .search {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .dogsaz {
+            margin: 10px;
+            padding: 10px;
+
+        }
+
+        .race_list {
+            display: grid;
+            margin: 0 auto;
+            grid-gap: 10px;
+            justify-content: center;
+            min-height: 50vh;
+        }
+
+        .data_dog {
+            padding: 20px;
+            min-height: 40vh;
+        }
+
+        .race_name {
+            margin-bottom: 40px;
+        }
+
+        #filter_breeds {
+            height: 350px;
+        }
+
+        .filter_options {
+            justify-content: center;
+        }
+
+        .alphabet {
+            display: grid;
+
+
+        }
+
+        .filter_regler {
+            font-size: 1.2rem;
+            font-family: blacker-sans-extrabold;
+            width: 50px;
+            height: 50px;
+            margin: 4px;
+            background-color: rgba(228, 229, 228, 0.51);
+            box-shadow: 2px 2px 2px 0px #E4E5E4;
+            border: 1px;
+
+        }
+
+        #menuknap {
+            width: 1vw;
+            height: 1vw;
+            background-image: url(imgs/Menu@2x.png);
+            background-size: 100%;
+            margin: 15px;
+            padding: 15px;
+            float: left;
+        }
+
+        #searchknap {
+
+            width: 1vw;
+            height: 1vw;
+            background-image: url(imgs/Path%20311@2x.png);
+            background-size: 100%;
+            margin: 15px;
+            padding: 15px;
+            float: right;
+        }
+
+
+        .valgt {
+            background-color: #C4242E;
+        }
+
+        @media screen and (min-width:500px) {
+
+            nav {
+                display: none;
+            }
+
+            #menuknap {
+                display: flex;
+            }
+
+            .race_list {
+                width: 70px;
+            }
+
+            .data_dog {
+                width: 50vw;
+            }
+
+            .race_list {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .filter_options {
+                display: grid;
+            }
+
+
+
+            .alphabet {
+                grid-template-columns: repeat(7, 1fr);
+            }
+
+            form {
+                position: relative;
+            }
+
+            input {
+                position: absolute;
+                font-family: blacker-sans-extrabold;
+                right: 65px;
+                top: 25px;
+                width: 80px;
+                height: 15px;
+            }
+
+        }
+
+        @media screen and (min-width:1000px) {
+
+            .race_list {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+
+            .data_dog {
+                max-width: 20vw;
+            }
+
+            .filter_options {
+                display: grid;
+            }
+
+            #menuknap {
+                display: none;
+            }
+
+            #searchknap {
+                display: none;
+            }
+
+            nav {
+                display: flex;
+            }
+
+            .alphabet {
+                grid-template-columns: repeat(13, 1fr);
+            }
+
+            form {
+                display: none;
+            }
+
+        }
+    </style>
 </head>
 
 <body>
+    <template>
+        <article class="data_dog">
+            <img class="billede" src="" alt="">
+            <h3 class="race_name"></h3>
+        </article>
+    </template>
+    <header>
+        <form>
 
+            <div id="menuknap"></div>
+            <input type="text" name="" value="Search">
+
+            <div id="searchknap"></div>
+        </form>
+
+        <nav>
+            <a class="search">Search</a>
+            <a class="dogsaz">Dogs A-Z</a>
+            <div id="red_line"></div>
+        </nav>
+
+
+        <img class="logo" src="" alt="">
+
+    </header>
+    <section id="forside_pic">
+        <img src="imgs/" alt="">
+    </section>
 
 
     <section id="filter_breeds">
-        <h1 class="red">Filter Dogs A-Z</h1>
+        <h1 class="red">Dogs A-Z</h1>
         <div class="filter_options">
-            <div class="size">
-                <button class="filter filter_regler" data-size="small">A</button>
-                <button class="filter filter_regler" data-size="medium">B</button>
-                <button class="filter filter_regler" data-size="large">C</button>
-                <button class="filter2 filter_regler" data-living="apartment">D</button>
-                <button class="filter2 filter_regler" data-living="house">E</button>
-                <button class="filter3 filter_regler" data-temperament="family">F </button>
-                <button class="filter3 filter_regler" data-temperament="guard"> G</button>
-                <button class="filter3 filter_regler" data-temperament="train">H </button>
-                <button class="filter filter_regler" data-size="small">I</button>
-                <button class="filter filter_regler" data-size="medium">J</button>
-                <button class="filter filter_regler" data-size="large">K</button>
-                <button class="filter2 filter_regler" data-living="apartment">L</button>
-                <button class="filter2 filter_regler" data-living="house">N</button>
-                <button class="filter3 filter_regler" data-temperament="family">M</button>
-                <button class="filter3 filter_regler" data-temperament="guard">O </button>
-                <button class="filter3 filter_regler" data-temperament="train">P </button>
-                <button class="filter filter_regler" data-size="small">Q</button>
-                <button class="filter filter_regler" data-size="medium">R</button>
-                <button class="filter filter_regler" data-size="large">S</button>
-                <button class="filter2 filter_regler" data-living="apartment">T</button>
-                <button class="filter2 filter_regler" data-living="house">U</button>
-                <button class="filter3 filter_regler" data-temperament="family"> V</button>
-                <button class="filter3 filter_regler" data-temperament="guard">W </button>
-                <button class="filter3 filter_regler" data-temperament="train">X </button>
-                <button class="filter3 filter_regler" data-temperament="guard">Y </button>
-                <button class="filter3 filter_regler" data-temperament="train">Z </button>
+            <div class="alphabet">
+                <button class="filter filter_regler" data-alphabet="a">A</button>
+                <button class="filter filter_regler" data-alphabet="b">B</button>
+                <button class="filter filter_regler" data-alphabet="c">C</button>
+                <button class="filter filter_regler" data-alphabet="d">D</button>
+                <button class="filter filter_regler" data-alphabet="e">E</button>
+                <button class="filter filter_regler" data-alphabet="f">F </button>
+                <button class="filter filter_regler" data-alphabet="g"> G</button>
+                <button class="filter filter_regler" data-alphabet="h">H </button>
+                <button class="filter filter_regler" data-alphabet="i">I</button>
+                <button class="filter filter_regler" data-alphabet="j">J</button>
+                <button class="filter filter_regler" data-alphabet="k">K</button>
+                <button class="filter filter_regler" data-alphabet="l">L</button>
+                <button class="filter filter_regler" data-alphabet="n">N</button>
+                <button class="filter filter_regler" data-alphabet="m">M</button>
+                <button class="filter filter_regler" data-alphabet="o">O </button>
+                <button class="filter filter_regler" data-alphabet="p">P </button>
+                <button class="filter filter_regler" data-alphabet="q">Q</button>
+                <button class="filter filter_regler" data-alphabet="r">R</button>
+                <button class="filter filter_regler" data-alphabet="s">S</button>
+                <button class="filter filter_regler" data-alphabet="t">T</button>
+                <button class="filter filter_regler" data-alphabet="u">U</button>
+                <button class="filter filter_regler" data-alphabet="v"> V</button>
+                <button class="filter filter_regler" data-alphabet="w">W </button>
+                <button class="filter filter_regler" data-alphabet="x">X </button>
+                <button class="filter filter_regler" data-alphabet="y">Y </button>
+                <button class="filter filter_regler" data-alphabet="z">Z </button>
 
             </div>
         </div>
     </section>
 
-    <script></script>
+    <section class="race_list"></section>
+
+    <script>
+        let dogs;
+        const dest = document.querySelector(".race_list");
+        const temp = document.querySelector("template");
+        let filterSize = "alle";
+        let filterLiving = "alle";
+        let filterTemperament = "alle";
+        let filterLetter = "alle";
+
+        document.addEventListener("DOMContentLoaded", getJson);
+        document.querySelector(".filter").addEventListener("click", filtrering);
+
+
+        async function getJson() {
+            let jsonData = await
+            fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
+            dogs = await jsonData.json();
+            showDogs();
+            addEventListenersToLetter();
+
+        }
+
+        function showDogs() {
+            dest.innerHTML = "";
+            dogs.feed.entry.forEach(dog => {
+                if (((filterSize == "alle" || filterSize == dog.gsx$size.$t) && (filterLiving == "alle" || filterLiving == dog.gsx$living.$t) && (filterTemperament == "alle" || filterTemperament == dog.gsx$temperament.$t) && (filterLetter == "alle" || filterLetter == dog.gsx$alphabet.$t))) {
+                    const clone = temp.cloneNode(true).content;
+                    clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
+                    clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
+
+                    dest.appendChild(clone);
+
+                    dest.lastElementChild.addEventListener("click", () => {
+                        location.href = `singleview.html?race=${dog.gsx$race.$t}`
+                    });
+
+                }
+            })
+        }
+
+        function addEventListenersToLetter() {
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+
+
+        }
+
+        function filtrering() {
+            console.log("filter1");
+            filterLetter = this.dataset.alphabet;
+
+
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.classList.remove("valgt");
+
+            });
+            this.classList.add("valgt");
+
+
+
+            showDogs();
+
+
+        }
+    </script>
 </body></html>
+
+
+
+
+
+
+<!--
+-->
