@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dogfinder</title>
     <style>
-        @font-face {
+
+        /* Font Face*/
+
+             @font-face {
             font-family: blacker-sans-extrabold;
             src: url('fonts/blacker-sans-extrabold/blacker-sans-extrabold-trial-webfont.woff2') format('woff2'),
                 url('fonts/blacker-sans-extrabold/blacker-sans-extrabold-trial-webfont.woff') format('woff');
@@ -14,18 +17,29 @@
             font-style: normal;
         }
 
-        header {
 
-            height: 70px;
+        /* Diverse CLASS*/
+
+        .red {
+            color: #C4242E;
         }
 
-        nav {
-            display: flex;
+        .hide {
+            display: none;
         }
+
+           .valgt {
+            background-color: red;
+        }
+
+
+        /* BILLEDE*/
 
         img {
             width: 100%;
         }
+
+        /* TEKST */
 
         h1 {
             text-align: center;
@@ -55,28 +69,17 @@
 
         }
 
-        /*En class som tilføjer en farve og er brugt i html .dogsaz .search h1 */
-        .red {
-            color: #C4242E;
+        /* CONTAINER */
+
+             header {
+
+            height: 70px;
         }
 
-        #red_line {
-            position: absolute;
-            top: 12%;
-            right: 5%;
-            width: 90%;
-            height: 0.3%;
-            background-image: url(imgs/Rectangle%205.png);
-            background-size: 100%;
+        nav {
+            display: flex;
         }
 
-        .hide {
-            display: none;
-        }
-
-        .valgt {
-            background-color: red;
-        }
 
         .search {
             margin: 10px;
@@ -86,8 +89,63 @@
         .dogsaz {
             margin: 10px;
             padding: 10px;
+        }
+
+
+                #red_line {
+            position: absolute;
+            top: 12%;
+            right: 5%;
+            width: 90%;
+            height: 0.3%;
+            background-image: url(imgs/Rectangle%205.png);
+            background-size: 100%;
+        }
+
+
+          #menuknap {
+
+            width: 1vw;
+            height: 1vw;
+            background-image: url(imgs/Menu@2x.png);
+            background-size: 100%;
+            margin: 15px;
+            padding: 15px;
+            float: left;
 
         }
+
+        #searchknap {
+
+            width: 1vw;
+            height: 1vw;
+            background-image: url(imgs/Path%20311@2x.png);
+            background-size: 100%;
+            margin: 15px;
+            padding: 15px;
+            float: right;
+        }
+
+        #sidebar {
+            width: 300px;
+            height: 0.1px;
+        }
+
+        #sidebar a {color: #C4242E;
+            font-weight: 600;
+            font-family: sans-serif;
+            transition: 0.3s;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-block;
+            padding: 20px;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            color: #0F0404;
+        }
+
 
         .race_list {
             display: grid;
@@ -139,51 +197,11 @@
             border: 1px;
         }
 
-        #menuknap {
 
-            width: 1vw;
-            height: 1vw;
-            background-image: url(imgs/Menu@2x.png);
-            background-size: 100%;
-            margin: 15px;
-            padding: 15px;
-            float: left;
 
-        }
 
-        #searchknap {
-
-            width: 1vw;
-            height: 1vw;
-            background-image: url(imgs/Path%20311@2x.png);
-            background-size: 100%;
-            margin: 15px;
-            padding: 15px;
-            float: right;
-        }
-
-        #sidebar {
-            width: 300px;
-            height: 0.1px;
-        }
-
-        #sidebar a {
-            color: #C4242E;
-            font-weight: 600;
-            font-family: sans-serif;
-            transition: 0.3s;
-            font-size: 1rem;
-            cursor: pointer;
-            display: inline-block;
-            padding: 20px;
-            text-decoration: none;
-        }
-
-        #sidebar a:hover {
-            color: #0F0404;
-        }
-
-        @media screen and (min-width:500px) {
+        /* MEDIA QUERY */
+  @media screen and (min-width:500px) {
 
             nav {
                 display: none;
@@ -258,6 +276,19 @@
             }
 
         }
+
+
+
+
+
+
+
+
+        /*En class som tilføjer en farve og er brugt i html .dogsaz .search h1 */
+
+
+
+
     </style>
 </head>
 
@@ -463,8 +494,11 @@
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
 
 
 
@@ -494,4 +528,3 @@
             float: left;
 */
 -->
-
