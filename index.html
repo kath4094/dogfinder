@@ -31,6 +31,10 @@
             background-color: #C4242E;
         }
 
+        .chosen {
+            background-color: #C4242E;
+        }
+
 
         /* BILLEDE*/
 
@@ -171,7 +175,6 @@
             display: flex;
             justify-content: center;
             width: 100%;
-            height: ;
         }
 
         .size {
@@ -199,12 +202,6 @@
             box-shadow: 2px 2px 2px 0px #E4E5E4;
             border: 1px;
         }
-
-        .chosen {
-            background-color: #C4242E;
-        }
-
-
 
 
         /* MEDIA QUERY */
@@ -288,12 +285,12 @@
             }
 
         }
-
     </style>
 </head>
 
 <body>
     <template>
+        <!--Templates containerens elementer udfyldes af Json-->
         <article class="data_dog">
             <img class="billede" src="" alt="">
             <h3 class="race_name"></h3>
@@ -321,8 +318,6 @@
         <nav>
             <a class="search">search</a>
             <a class="dogsaz" href="abc.html">dogs a-z</a>
-
-
         </nav>
 
 
@@ -335,17 +330,22 @@
 
 
     <section id="filter_breeds">
+        <!--Filtreringsmenu-->
         <h1 class="red">Filter Breeds</h1>
         <div class="filter_options">
+            <!--Filtrerings muligheder er delt op indenfor denne container-->
             <div class="size">
+                <!--filtrerings muligheden som filter efter størrelse-->
                 <h2>Size</h2>
                 <button class="filter filter_regler" data-size="small">Small</button>
+                <!--filtreringsknappernes data-attributter indeholder hvert deres værdi som der skal filtreres på-->
                 <button class="filter filter_regler" data-size="medium">Medium</button>
                 <button class="filter filter_regler" data-size="large">Large</button>
             </div>
 
 
             <div class="living">
+                <!--filtrerings muligheden som filter efter levevilkår-->
                 <h2>Ideal living situation</h2>
                 <button class="filter2 filter_regler" data-living="apartment">Apartment</button>
                 <button class="filter2 filter_regler" data-living="house">House</button>
@@ -353,6 +353,7 @@
             </div>
 
             <div class="temperament">
+                <!--filtrerings muligheden som filter efter opførelse-->
                 <h2>Temperament</h2>
                 <button class="filter3 filter_regler" data-temperament="family">Family Dog</button>
                 <button class="filter3 filter_regler" data-temperament="guard">Guard Dog</button>
@@ -363,41 +364,55 @@
 
     </section>
 
-    <section class="race_list"></section>
+    <section class="race_list"></section><!-- en tom liste som henter de forskelige racers værdier-->
 
     <script>
         let dogs;
         const dest = document.querySelector(".race_list");
+        // En variabel som tjekker sættes igang når DOM'en er loaded
+
         const temp = document.querySelector("template");
         let filterSize = "alle";
+        // alle størrelser skal vises ved start
         let filterLiving = "alle";
+        // alle levevilkår skal vises ved start
         let filterTemperament = "alle";
+        // alle opførelser skal vises ved start
+
 
         document.addEventListener("DOMContentLoaded", getJson);
-        document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
+        // Programmet sættes igang når DOM'en er loaded
+        document.querySelector("#menuknap").addEventListener("click", sidebarDisplay); // En eventhanlder som lytter efter at click eventet på burgermenuen finder sted
 
         async function getJson() {
             let jsonData = await
+
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
             dogs = await jsonData.json();
-            showDogs();
-            addEventListenersToSize();
-            addEventListenersToLiving();
-            addEventListenersToTemperament();
+            // Programmet venter på at json indlæses
+            showDogs(); // Funktionen showDogs kaldes
+            addEventListenersToSize(); // Funktionen showDogs kaldes
+            addEventListenersToLiving(); // Funktionen addEventListenersToLiving kaldes
+            addEventListenersToTemperament(); // Funktionen addEventListenersToTemperament kaldes
+
         }
 
         function showDogs() {
-            dest.innerHTML = "";
+            dest.innerHTML = ""; // dest resets
             dogs.feed.entry.forEach(dog => {
+                // forEach metoden bruges til at loppe gennem hvert værdi
                 if (((filterSize == "alle" || filterSize == dog.gsx$size.$t) && (filterLiving == "alle" || filterLiving == dog.gsx$living.$t) && (filterTemperament == "alle" || filterTemperament == dog.gsx$temperament.$t))) {
                     const clone = temp.cloneNode(true).content;
                     clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
+                    // kloner en bestemt værdi fra json til til classen race_name
                     clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
-
+                    // kloner en bestemt værdi fra json til til classen billede
                     dest.appendChild(clone);
-
                     dest.lastElementChild.addEventListener("click", () => {
+                        //Retunere objektets sidste child element når click event finder sted
                         location.href = `singleview.html?race=${dog.gsx$race.$t}`
+
+
                     });
 
                 }
@@ -408,81 +423,59 @@
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.addEventListener("click", filtrering);
             })
-
-
+            //Eventhandler på hvert knap indenfor filtreringsmuligheden størrelse - når click event finder sted kaldes function filtrering()
         }
-
 
         function addEventListenersToLiving() {
             document.querySelectorAll(".filter2").forEach(elm => {
                 elm.addEventListener("click", filtrering2);
             })
-
-
+            //Eventhandler på hvert knap indenfor filtreringsmuligheden levevilkår - når click event finder sted kaldes function filtrering2()
         }
 
         function addEventListenersToTemperament() {
             document.querySelectorAll(".filter3").forEach(elm => {
                 elm.addEventListener("click", filtrering3);
             })
-
-
+            //Eventhandler på hvert knap indenfor filtreringsmuligheden opførelse - når click event finder sted kaldes function filtrering3()
         }
 
         function filtrering() {
             console.log("filter1");
             filterSize = this.dataset.size;
-
-
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.classList.remove("chosen");
-
             });
             this.classList.add("chosen");
-
-
-
+            // denne funktion tilføjer en filtrerings mulighed mellem størrelser/size og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
             showDogs();
-
+            // Funktionen showDogs kaldes
 
         }
 
         function filtrering2() {
             console.log("filter2");
             filterLiving = this.dataset.living;
-
             document.querySelectorAll(".filter2").forEach(elm => {
                 elm.classList.remove("chosen");
-
             });
             this.classList.add("chosen");
-
-
-
-
-
-
+            // denne funktion tilføjer en filtrerings mulighed mellem levevilkår/living og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
             showDogs();
-
+            // Funktionen showDogs kaldes
 
         }
 
         function filtrering3() {
             console.log("filter3");
             filterTemperament = this.dataset.temperament;
-
             document.querySelectorAll(".filter3").forEach(elm => {
                 elm.classList.remove("chosen");
-
             });
             this.classList.add("chosen");
-
-
-
-
-
+            // denne funktion tilføjer en filtrerings mulighed mellem opførelse/temperament og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
             showDogs();
-
+            // Funktionen showDogs kaldes
 
         }
 
@@ -495,8 +488,5 @@
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
         }
-
     </script>
-</body>
-
-</html>
+</body></html>

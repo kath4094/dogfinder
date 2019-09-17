@@ -227,7 +227,6 @@
             }
 
         }
-
     </style>
 </head>
 
@@ -285,19 +284,25 @@
         let dogs;
 
         document.addEventListener("DOMContentLoaded", getJson);
+        // Programmet sættes igang når DOM'en er loaded
+
         document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
+        // En eventhanlder som lytter efter at click eventet på burgermenuen finder sted
+
 
         async function getJson() {
             let jsonData = await
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
             dogs = await jsonData.json();
-            showDog();
+            // Programmet venter på at json indlæses
 
+            showDog();
+            // Funktionen showDogs kaldes
 
         }
 
         function showDog() {
-            dogs.feed.entry.forEach(dog => {
+            dogs.feed.entry.forEach(dog => { // dest resets
                 if (dog.gsx$race.$t == race) {
                     document.querySelector("h1").textContent = dog.gsx$race.$t;
                     document.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
@@ -323,8 +328,5 @@
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
         }
-
     </script>
-</body>
-
-</html>
+</body></html>

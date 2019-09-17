@@ -272,12 +272,13 @@
             }
 
         }
-
     </style>
 </head>
 
 <body>
     <template>
+        <!--Templates containerens elementer udfyldes af Json-->
+
         <article class="data_dog">
             <img class="billede" src="" alt="">
             <h3 class="race_name"></h3>
@@ -316,9 +317,14 @@
 
 
     <section id="filter_breeds">
+        <!--Filtreringsmenu-->
         <h1 class="red">Dogs A-Z</h1>
         <div class="filter_options">
+            <!--Filtrerings muligheder er delt op indenfor denne container-->
+
             <div class="alphabet">
+                <!--filtrerings muligheden som filter efter racens forbogstav-->
+                <!--filtreringsknappernes data-attributter indeholder hvert deres værdi som der skal filtreres på-->
                 <button class="filter filter_regler" data-alphabet="a">A</button>
                 <button class="filter filter_regler" data-alphabet="b">B</button>
                 <button class="filter filter_regler" data-alphabet="c">C</button>
@@ -350,41 +356,58 @@
         </div>
     </section>
 
-    <section class="race_list"></section>
+    <section class="race_list"></section> <!-- en tom liste som henter de forskelige racers værdier-->
 
     <script>
         let dogs;
         const dest = document.querySelector(".race_list");
+        // En variabel som tjekker sættes igang når DOM'en er loaded
+
         const temp = document.querySelector("template");
         let filterSize = "alle";
+        // alle størrelser skal vises ved start
+
         let filterLiving = "alle";
+        // alle levevilkår skal vises ved start
+
         let filterTemperament = "alle";
+        // alle opførelser skal vises ved start
+
         let filterLetter = "alle";
+        // alle forbogstaver skal vises ved start
+
 
         document.addEventListener("DOMContentLoaded", getJson);
+        // Programmet sættes igang når DOM'en er loaded
+
         document.querySelector(".filter").addEventListener("click", filtrering);
 
         document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
+        // En eventhanlder som lytter efter at click eventet på burgermenuen finder sted
         async function getJson() {
             let jsonData = await
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
             dogs = await jsonData.json();
-            showDogs();
-            addEventListenersToLetter();
+            // Programmet venter på at json indlæses
+            showDogs(); // Funktionen showDogs
+            kaldes
+            addEventListenersToLetter(); // Funktionen addEventListenersToLetter kaldes
 
         }
 
         function showDogs() {
-            dest.innerHTML = "";
+            dest.innerHTML = ""; // dest resets
             dogs.feed.entry.forEach(dog => {
+                // forEach metoden bruges til at loppe gennem hvert værdi
                 if (((filterSize == "alle" || filterSize == dog.gsx$size.$t) && (filterLiving == "alle" || filterLiving == dog.gsx$living.$t) && (filterTemperament == "alle" || filterTemperament == dog.gsx$temperament.$t) && (filterLetter == "alle" || filterLetter == dog.gsx$alphabet.$t))) {
                     const clone = temp.cloneNode(true).content;
                     clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
+                    // kloner en bestemt værdi fra json til til classen race_name
                     clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
-
+                    // kloner en bestemt værdi fra json til til classen billede
                     dest.appendChild(clone);
-
                     dest.lastElementChild.addEventListener("click", () => {
+                        //Retunere objektets sidste child element når click event finder sted
                         location.href = `singleview.html?race=${dog.gsx$race.$t}`
                     });
 
@@ -396,25 +419,19 @@
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.addEventListener("click", filtrering);
             })
-
-
+            //Eventhandler på hvert knap indenfor filtreringsmuligheden forbogstaver - når click event finder sted kaldes function filtrering()
         }
 
         function filtrering() {
             console.log("filter1");
             filterLetter = this.dataset.alphabet;
-
-
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.classList.remove("valgt");
-
             });
             this.classList.add("valgt");
-
-
-
+            // denne funktion tilføjer en filtrerings mulighed mellem forbogstaver og fjerner/tilføjer classlist valgt som skaber en markering af den valgte knap
             showDogs();
-
+            // Funktionen showDogs kaldes
 
         }
 
@@ -427,11 +444,8 @@
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
 
 
 
