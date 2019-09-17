@@ -43,6 +43,8 @@
 
         a {
             font-size: 1.5rem;
+            text-decoration-line: none;
+
         }
 
         p {
@@ -82,11 +84,15 @@
 
         nav {
             display: flex;
-            border-bottom: solid red;
+            border-bottom: solid #C4242E;
             border-bottom-width: thin;
             font-family: sans-serif;
+            justify-content: space-between;
         }
 
+        #nav_knapper {
+            margin: 20px;
+        }
 
         .search {
             margin: 10px;
@@ -96,6 +102,12 @@
         .dogsaz {
             margin: 10px;
             padding: 10px;
+            color: black;
+        }
+
+        .logo {
+            width: 10vw;
+            height: ;
 
         }
 
@@ -236,9 +248,15 @@
 
         <!--Navigationsmenu til desktopversion-->
         <nav>
-            <a class="search">Search</a>
-            <a class="dogsaz">Dogs a-z</a>
+            <div id="nav_knapper">
+                <a class="search">Search</a>
+                <a class="dogsaz" href="abc.html">Dogs a-z</a>
+            </div>
+            <a href="index.html">
+                <img class="logo" src="imgs/logo.png" alt="DogFinder logo">
+            </a>
         </nav>
+
 
 
         <img class="logo" src="" alt="">

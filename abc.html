@@ -70,6 +70,7 @@
             font-size: 1.5rem;
             font-family: sans-serif;
             text-decoration-line: none;
+            color: black;
 
 
         }
@@ -80,7 +81,11 @@
             display: flex;
             border-bottom: solid #C4242E;
             border-bottom-width: thin;
-            font-family: sans-serif;
+            justify-content: space-between
+        }
+
+        #nav_knapper {
+            margin: 20px
         }
 
         .search {
@@ -92,6 +97,11 @@
             margin: 10px;
             padding: 10px;
 
+        }
+
+        .logo {
+            width: 10vw;
+            height: 10vh;
         }
 
         #menuknap {
@@ -136,6 +146,19 @@
         #sidebar a:hover {
             color: #0F0404;
         }
+
+        #forside_pic {
+            display: flex;
+            margin-top: 2rem;
+            justify-content: center;
+
+        }
+
+        #forside_pic img {
+            width: 60vw;
+
+        }
+
 
         .race_list {
             display: grid;
@@ -290,9 +313,13 @@
 
         <!--Navigationsmenu til desktopversion-->
         <nav>
-            <a class="search">Search</a>
-            <a class="dogsaz">Dogs A-Z</a>
-            <div id="red_line"></div>
+            <div id="nav_knapper">
+                <a class="search">Search</a>
+                <a class="dogsaz" href="abc.html">Dogs a-z</a>
+            </div>
+            <a href="index.html">
+                <img class="logo" src="imgs/logo.png" alt="DogFinder logo">
+            </a>
         </nav>
 
 

@@ -68,6 +68,8 @@
         a {
             font-size: 1.5rem;
             text-decoration-line: none;
+            color: black;
+
 
         }
 
@@ -79,19 +81,29 @@
             display: flex;
             border-bottom: solid #C4242E;
             border-bottom-width: thin;
-            font-family: sans-serif;
+            justify-content: space-between;
 
         }
 
+        #nav_knapper {
+            margin: 20px
+        }
 
         .search {
             margin: 10px;
             padding: 10px;
+
         }
 
         .dogsaz {
             margin: 10px;
             padding: 10px;
+        }
+
+
+        .logo {
+            width: 10vw;
+            height: 10vh;
         }
 
         #menuknap {
@@ -137,6 +149,10 @@
         #sidebar a:hover {
             color: #0F0404;
         }
+
+        #forside_pic {}
+
+        #forside_pic img {}
 
         .race_list {
             display: grid;
@@ -197,11 +213,6 @@
 
             nav {
                 display: none;
-            }
-
-
-            #forside_pic {
-                margin-top: 2rem;
             }
 
             #menuknap {
@@ -269,6 +280,7 @@
             }
 
         }
+
     </style>
 </head>
 
@@ -299,14 +311,18 @@
 
         <!--Navigationsmenu til desktopversion-->
         <nav>
-            <a class="search">Search</a>
-            <a class="dogsaz" href="abc.html">Dogs a-z</a>
+            <div id="nav_knapper">
+                <a class="search">Search</a>
+                <a class="dogsaz" href="abc.html">Dogs a-z</a>
+            </div>
+            <img class="logo" src="imgs/logo.png" alt="DogFinder logo">
         </nav>
 
 
-        <img class="logo" src="" alt="">
 
     </header>
+
+
     <section id="forside_pic">
         <img src="imgs/dogs-01.06.jpg" alt="">
     </section>
@@ -505,5 +521,8 @@
             //Her tjekkes der om elementet indeholder class hide
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
