@@ -80,11 +80,6 @@
             max-width: 65vw;
         }
 
-        header {
-
-            height: 70px;
-        }
-
         nav {
             display: flex;
             border-bottom: solid red;
@@ -125,15 +120,7 @@
             float: right;
         }
 
-        #red_line {
-            position: absolute;
-            top: 12%;
-            right: 5%;
-            width: 90%;
-            height: 0.3%;
-            background-image: url(imgs/Rectangle%205.png);
-            background-size: 100%;
-        }
+
 
         #sidebar {
             width: 300px;
@@ -231,29 +218,26 @@
 </head>
 
 <body>
-
     <header>
 
+        <!--Burgermenu vises kun mobil/tablet version-->
         <div id="menuknap"></div>
         <div id="sidebar" class="hide">
             <a href="index.html">Forside</a>
             <a href="abc.html">Dogs A-Z</a>
-
-
         </div>
 
-
+        <!--skaber et input felt ved siden af searchknap-->
         <form>
             <input type="text" name="" value="Search">
 
             <div id="searchknap"></div>
         </form>
 
+        <!--Navigationsmenu til desktopversion-->
         <nav>
-            <a class="search">search</a>
-            <a class="dogsaz">dogs a-z</a>
-
-
+            <a class="search">Search</a>
+            <a class="dogsaz">Dogs a-z</a>
         </nav>
 
 
@@ -261,7 +245,9 @@
 
     </header>
 
+    <!--Section containerens elementer udfyldes af Json-->
     <section>
+
         <h1 class="race_name"></h1>
         <img class="billede" src="" alt="">
 
@@ -279,30 +265,37 @@
 
 
     <script>
+        // Henter navnet på racen der skal vises fra url'en
         let urlParams = new URLSearchParams(window.location.search);
         let race = urlParams.get("race");
         let dogs;
 
+        // En listener der sættes igang når DOM'en er loaded hvor json hentes
         document.addEventListener("DOMContentLoaded", getJson);
-        // Programmet sættes igang når DOM'en er loaded
 
-        document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
         // En eventhanlder som lytter efter at click eventet på burgermenuen finder sted
+        document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
 
 
+        // Funktion der henter json med data
         async function getJson() {
             let jsonData = await
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
-            dogs = await jsonData.json();
-            // Programmet venter på at json indlæses
 
-            showDog();
+            // Venter på at json data indlæses
+            dogs = await jsonData.json();
+
             // Funktionen showDogs kaldes
+            showDog();
 
         }
 
+
+        // Viser den rigtige hund ud fra racenavnet i url'en
         function showDog() {
-            dogs.feed.entry.forEach(dog => { // dest resets
+            dogs.feed.entry.forEach(dog => {
+
+                // Sørger for at json data sættes ind på de rette elementer
                 if (dog.gsx$race.$t == race) {
                     document.querySelector("h1").textContent = dog.gsx$race.$t;
                     document.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
@@ -310,16 +303,11 @@
                     document.querySelector(".temp_info").textContent = dog.gsx$tempinfo.$t;
                     document.querySelector(".health").textContent = dog.gsx$health.$t;
                     document.querySelector(".allergy").textContent = dog.gsx$allergyfriendly.$t;
-
-
-
-
                 }
             })
-
         }
 
-
+        // Viser eller skjuler burger menu
         function sidebarDisplay() {
             console.log("sidebarDisplay");
             //toggle af class hide
