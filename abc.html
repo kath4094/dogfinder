@@ -8,7 +8,6 @@
     <style>
         /* Font Face*/
 
-
         @font-face {
             font-family: blacker-sans-extrabold;
             src: url('fonts/blacker-sans-extrabold/blacker-sans-extrabold-trial-webfont.woff2') format('woff2'),
@@ -19,14 +18,17 @@
 
         /* Diverse CLASS*/
 
+        /* Denne classe er sat ind i html for at ændre på skriftens farve*/
         .red {
             color: #C4242E;
         }
 
-        .valgt {
+        /* Denne class marker hvilke filter man har i brug og bliver tilføjet/fjernet gennem funktionerne filtrering ,filtrering2 og filtrering3*/
+        .chosen {
             background-color: #C4242E;
         }
 
+        /* Denne classe er sat ind i html for at gøre sidebar usynlig*/
         .hide {
             display: none;
         }
@@ -34,6 +36,9 @@
 
         /* BILLEDE*/
 
+
+
+        /* Sørger for at billede fylder så meget af bredden som muligt*/
         img {
             width: 100%;
         }
@@ -64,17 +69,23 @@
         a {
             font-size: 1.5rem;
             font-family: sans-serif;
+            text-decoration-line: none;
+            color: black;
+
 
         }
 
         /* CONTAINER */
 
-        header {
-            height: 70px;
-        }
-
         nav {
             display: flex;
+            border-bottom: solid #C4242E;
+            border-bottom-width: thin;
+            justify-content: space-between
+        }
+
+        #nav_knapper {
+            margin: 20px
         }
 
         .search {
@@ -88,17 +99,10 @@
 
         }
 
-
-        #red_line {
-            position: absolute;
-            top: 12%;
-            right: 5%;
-            width: 90%;
-            height: 0.3%;
-            background-image: url(imgs/Rectangle%205.png);
-            background-size: 100%;
+        .logo {
+            width: 10vw;
+            height: 10vh;
         }
-
 
         #menuknap {
             width: 1vw;
@@ -143,12 +147,26 @@
             color: #0F0404;
         }
 
+        #forside_pic {
+            display: flex;
+            margin-top: 2rem;
+            justify-content: center;
+
+        }
+
+        #forside_pic img {
+            width: 60vw;
+
+        }
+
+
         .race_list {
             display: grid;
-            margin: 0 auto;
+            margin: 4rem auto;
             grid-gap: 10px;
             justify-content: center;
             min-height: 50vh;
+            max-width: 1400px;
         }
 
         .data_dog {
@@ -188,6 +206,7 @@
 
         /* MEDIA QUERY */
 
+        /* Smartphone/Tablet*/
         @media screen and (min-width:500px) {
 
             nav {
@@ -196,14 +215,6 @@
 
             #menuknap {
                 display: flex;
-            }
-
-            .race_list {
-                width: 70px;
-            }
-
-            .data_dog {
-                width: 50vw;
             }
 
             .race_list {
@@ -239,18 +250,16 @@
                 grid-template-columns: 1fr 1fr 1fr 1fr;
             }
 
-            .data_dog {
-                max-width: 20vw;
-            }
-
             .filter_options {
                 display: grid;
             }
 
+            /* Gør burgermenu knap usynlig i desktop version*/
             #menuknap {
                 display: none;
             }
 
+            /* Gør search iconet usynlig i desktop version*/
             #searchknap {
                 display: none;
             }
@@ -263,20 +272,23 @@
                 grid-template-columns: repeat(13, 1fr);
             }
 
+            /* Gør search input feltet usynlig i desktop version*/
             form {
                 display: none;
             }
 
+            /* Gør burgmenu indhold usynlig i desktop version*/
             #sidebar {
                 display: none;
             }
 
         }
-
     </style>
 </head>
 
 <body>
+
+    <!--Templates containerens elementer udfyldes af Json-->
     <template>
         <article class="data_dog">
             <img class="billede" src="" alt="">
@@ -285,25 +297,29 @@
     </template>
     <header>
 
+        <!--Burgermenu vises kun mobil/tablet version-->
         <div id="menuknap"></div>
         <div id="sidebar" class="hide">
             <a href="index.html">Forside</a>
             <a href="abc.html">Dogs A-Z</a>
-
-
         </div>
 
-
+        <!--skaber et input felt ved siden af searchknap-->
         <form>
             <input type="text" name="" value="Search">
 
             <div id="searchknap"></div>
         </form>
 
+        <!--Navigationsmenu til desktopversion-->
         <nav>
-            <a class="search">Search</a>
-            <a class="dogsaz">Dogs A-Z</a>
-            <div id="red_line"></div>
+            <div id="nav_knapper">
+                <a class="search">Search</a>
+                <a class="dogsaz" href="abc.html">Dogs a-z</a>
+            </div>
+            <a href="index.html">
+                <img class="logo" src="imgs/logo.png" alt="DogFinder logo">
+            </a>
         </nav>
 
 
@@ -314,11 +330,17 @@
         <img src="imgs/dogs-01.06.jpg" alt="">
     </section>
 
-
+    <!--Filtreringsmenu-->
     <section id="filter_breeds">
         <h1 class="red">Dogs A-Z</h1>
+
+        <!--Filtrerings muligheder er delt op indenfor denne container-->
         <div class="filter_options">
+
+            <!--filtrerings muligheden som filter efter racens forbogstav-->
             <div class="alphabet">
+
+                <!--filtreringsknappernes data-attributter indeholder hvert deres værdi som der skal filtreres på-->
                 <button class="filter filter_regler" data-alphabet="a">A</button>
                 <button class="filter filter_regler" data-alphabet="b">B</button>
                 <button class="filter filter_regler" data-alphabet="c">C</button>
@@ -345,46 +367,83 @@
                 <button class="filter filter_regler" data-alphabet="x">X </button>
                 <button class="filter filter_regler" data-alphabet="y">Y </button>
                 <button class="filter filter_regler" data-alphabet="z">Z </button>
-
             </div>
         </div>
     </section>
 
+    <!-- en tom liste som henter de forskelige racers værdier-->
     <section class="race_list"></section>
 
     <script>
-        let dogs;
+        let dogs
+
+        // En sektion der viser de forskellige hunderacer
         const dest = document.querySelector(".race_list");
+
+        // Template uden data, til at vise en hund hentes
         const temp = document.querySelector("template");
+
+        // alle størrelser skal vises ved start
         let filterSize = "alle";
+
+        // alle levevilkår skal vises ved start
         let filterLiving = "alle";
+
+        // alle opførelser skal vises ved start
         let filterTemperament = "alle";
+
+
+        // alle forbogstaver skal vises ved start
         let filterLetter = "alle";
 
+
+        // En listener der sættes igang når DOM'en er loaded hvor json hentes
         document.addEventListener("DOMContentLoaded", getJson);
+
         document.querySelector(".filter").addEventListener("click", filtrering);
 
+        // En eventhanlder som lytter efter at click eventet på burgermenuen finder sted
         document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
+
+        // Funktion der henter json med data
         async function getJson() {
             let jsonData = await
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
-            dogs = await jsonData.json();
-            showDogs();
-            addEventListenersToLetter();
 
+            // Venter på at json data indlæses
+            dogs = await jsonData.json();
+
+            // Funktionen showDogs  kaldes
+            showDogs();
+
+            // Event listeners tilføjes så man kan sortere hunde på et filter med forbogstaver
+            addEventListenersToLetter();
         }
 
+
+        // Funktion der viser hundene der er hentet
         function showDogs() {
+
+            // Ryd sektion for content
             dest.innerHTML = "";
+
+            // forEach metoden bruges til at loppe gennem hvert værdi
             dogs.feed.entry.forEach(dog => {
+
                 if (((filterSize == "alle" || filterSize == dog.gsx$size.$t) && (filterLiving == "alle" || filterLiving == dog.gsx$living.$t) && (filterTemperament == "alle" || filterTemperament == dog.gsx$temperament.$t) && (filterLetter == "alle" || filterLetter == dog.gsx$alphabet.$t))) {
+
+                    // Sørger for at json data sættes ind på de rette elementer
                     const clone = temp.cloneNode(true).content;
                     clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
+
+                    // Sætter det rigtige billede url
                     clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
 
                     dest.appendChild(clone);
 
+                    //Retunere objektets sidste child element når click event finder sted
                     dest.lastElementChild.addEventListener("click", () => {
+
                         location.href = `singleview.html?race=${dog.gsx$race.$t}`
                     });
 
@@ -392,33 +451,30 @@
             })
         }
 
+
+        // Eventhandler på hvert knap indenfor filtreringsmuligheden forbogstaver - når click event finder sted kaldes function filtrering()
         function addEventListenersToLetter() {
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.addEventListener("click", filtrering);
             })
 
-
         }
 
+        // denne funktion tilføjer en filtrerings mulighed mellem forbogstaver og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
         function filtrering() {
             console.log("filter1");
             filterLetter = this.dataset.alphabet;
-
-
             document.querySelectorAll(".filter").forEach(elm => {
-                elm.classList.remove("valgt");
-
+                elm.classList.remove("chosen");
             });
-            this.classList.add("valgt");
+            this.classList.add("chosen");
 
-
-
+            // Funktionen showDogs kaldes
             showDogs();
-
 
         }
 
-
+        // Viser eller skjuler burger menu
         function sidebarDisplay() {
             console.log("sidebarDisplay");
             //toggle af class hide
@@ -427,11 +483,8 @@
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
 
 
 

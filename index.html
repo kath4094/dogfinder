@@ -19,21 +19,24 @@
 
         /* Diverse CLASS*/
 
+        /* Denne classe er sat ind i html for at ændre på skriftens farve*/
         .red {
             color: #C4242E;
         }
 
+        /* Denne classe er sat ind i html for at gøre sidebar usynlig*/
         .hide {
             display: none;
         }
 
-        .valgt {
+        /* Denne class markerer hvilke filtre man har i brug og bliver tilføjet/fjernet gennem funktionerne filtrering ,filtrering2 og filtrering3*/
+        .chosen {
             background-color: #C4242E;
         }
 
-
         /* BILLEDE*/
 
+        /* Sørger for at billede fylder så meget af bredden som muligt*/
         img {
             width: 100%;
         }
@@ -65,28 +68,31 @@
         a {
             font-size: 1.5rem;
             text-decoration-line: none;
+            color: black;
+
 
         }
 
         /* CONTAINER */
 
-        header {
 
-            height: 70px;
-        }
 
         nav {
             display: flex;
             border-bottom: solid #C4242E;
             border-bottom-width: thin;
-            font-family: sans-serif;
+            justify-content: space-between;
 
         }
 
+        #nav_knapper {
+            margin: 20px
+        }
 
         .search {
             margin: 10px;
             padding: 10px;
+
         }
 
         .dogsaz {
@@ -95,16 +101,10 @@
         }
 
 
-        #red_line {
-            position: absolute;
-            top: 12%;
-            right: 5%;
-            width: 90%;
-            height: 0.3%;
-            background-image: url(imgs/Rectangle%205.png);
-            background-size: 100%;
+        .logo {
+            width: 10vw;
+            height: 10vh;
         }
-
 
         #menuknap {
 
@@ -150,17 +150,23 @@
             color: #0F0404;
         }
 
+        #forside_pic {}
+
+        #forside_pic img {}
+
         .race_list {
             display: grid;
-            margin: 0 auto;
+            margin: 4rem auto;
             grid-gap: 10px;
             justify-content: center;
             min-height: 50vh;
+            max-width: 1400px;
         }
 
         .data_dog {
             padding: 20px;
             min-height: 40vh;
+
         }
 
         .race_name {
@@ -171,7 +177,6 @@
             display: flex;
             justify-content: center;
             width: 100%;
-            height: ;
         }
 
         .size {
@@ -200,35 +205,18 @@
             border: 1px;
         }
 
-        .chosen {
-            background-color: #C4242E;
-        }
-
-
-
 
         /* MEDIA QUERY */
+
+        /* Smartphone/Tablet*/
         @media screen and (min-width:500px) {
 
             nav {
                 display: none;
             }
 
-
-            #forside_pic {
-                margin-top: 2rem;
-            }
-
             #menuknap {
                 display: flex;
-            }
-
-            .race_list {
-                width: 70px;
-            }
-
-            .data_dog {
-                width: 50vw;
             }
 
             .race_list {
@@ -253,24 +241,25 @@
             }
         }
 
+
+        /* Desktop*/
         @media screen and (min-width:1000px) {
 
             .race_list {
                 grid-template-columns: repeat(4, 1fr);
             }
 
-            .data_dog {
-                max-width: 20vw;
-            }
 
             .filter_options {
                 display: flex;
             }
 
+            /* Gør burgermenu knap usynlig i desktop version*/
             #menuknap {
                 display: none;
             }
 
+            /* Gør search iconet usynlig i desktop version*/
             #searchknap {
                 display: none;
             }
@@ -279,10 +268,13 @@
                 display: flex;
             }
 
+
+            /* Gør search input feltet usynlig i desktop version*/
             form {
                 display: none;
             }
 
+            /* Gør burgmenu indhold usynlig i desktop version*/
             #sidebar {
                 display: none;
             }
@@ -293,6 +285,8 @@
 </head>
 
 <body>
+
+    <!--Templates containerens elementer udfyldes af Json-->
     <template>
         <article class="data_dog">
             <img class="billede" src="" alt="">
@@ -302,23 +296,22 @@
     <header>
 
 
-
+        <!--Burgermenu vises kun mobil/tablet version-->
         <div id="menuknap"></div>
         <div id="sidebar" class="hide">
             <a href="index.html">Forside</a>
             <a href="abc.html">Dogs A-Z</a>
-
-
         </div>
+
+        <!--skaber et input felt ved siden af searchknap-->
         <form>
             <input type="text" name="" value="Search">
-
             <div id="searchknap"></div>
-
         </form>
 
-
+        <!--Navigationsmenu til desktopversion-->
         <nav>
+
             <a class="search">search</a>
             <a class="dogsaz" href="abc.html">dogs a-z</a>
             <img class="logo" src="" alt="">
@@ -326,35 +319,56 @@
 
         </nav>
 
+        <div id="nav_knapper">
+            <a class="search">Search</a>
+            <a class="dogsaz" href="abc.html">Dogs a-z</a>
+        </div>
+        <img class="logo" src="imgs/logo.png" alt="DogFinder logo">
 
 
+
+        >>>>>>> origin/master
 
     </header>
+
+
     <section id="forside_pic">
         <img src="imgs/dogs-01.06.jpg" alt="">
     </section>
 
-
+    <!--Filtreringsmenu-->
     <section id="filter_breeds">
         <h1 class="red">Filter Breeds</h1>
+
+        <!--Filtrerings muligheder er delt op indenfor denne container-->
         <div class="filter_options">
+
+            <!--filtrerings muligheden som filter efter størrelse-->
             <div class="size">
                 <h2>Size</h2>
+
+                <!--filtreringsknappernes data-attributter indeholder hvert deres værdi som der skal filtreres på-->
                 <button class="filter filter_regler" data-size="small">Small</button>
                 <button class="filter filter_regler" data-size="medium">Medium</button>
                 <button class="filter filter_regler" data-size="large">Large</button>
             </div>
 
 
+            <!--filtrerings muligheden som filter efter levevilkår-->
             <div class="living">
                 <h2>Ideal living situation</h2>
+
+                <!--filtreringsknappernes data-attributter indeholder hvert deres værdi som der skal filtreres på-->
                 <button class="filter2 filter_regler" data-living="apartment">Apartment</button>
                 <button class="filter2 filter_regler" data-living="house">House</button>
 
             </div>
 
+            <!--filtrerings muligheden som filter efter opførelse-->
             <div class="temperament">
                 <h2>Temperament</h2>
+
+                <!--filtreringsknappernes data-attributter indeholder hvert deres værdi som der skal filtreres på-->
                 <button class="filter3 filter_regler" data-temperament="family">Family Dog</button>
                 <button class="filter3 filter_regler" data-temperament="guard">Guard Dog</button>
                 <button class="filter3 filter_regler" data-temperament="train">Easy to train</button>
@@ -364,40 +378,75 @@
 
     </section>
 
+    <!-- en tom liste som henter de forskelige racers værdier-->
     <section class="race_list"></section>
 
     <script>
         let dogs;
+
+        // En sektion der viser de forskellige hunderacer
         const dest = document.querySelector(".race_list");
+
+        // Template uden data, til at vise en hund hentes
         const temp = document.querySelector("template");
+
+        // alle størrelser skal vises ved start
         let filterSize = "alle";
+
+        // alle levevilkår skal vises ved start
         let filterLiving = "alle";
+
+        // alle opførelser skal vises ved start
         let filterTemperament = "alle";
 
+        // En listener der sættes igang når DOM'en er loaded hvor json hentes
         document.addEventListener("DOMContentLoaded", getJson);
+
+        // En eventhanlder som lytter efter at click eventet på burgermenuen finder sted
         document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
 
+        // Funktion der henter json med data
         async function getJson() {
             let jsonData = await
+
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
+
+            // Venter på at json data indlæses
             dogs = await jsonData.json();
+
+            // Hunde vises
             showDogs();
+
+            // Event listeners tilføjes så man kan sortere hunde på et filter med størelse, levevilkår og opførsel
             addEventListenersToSize();
             addEventListenersToLiving();
             addEventListenersToTemperament();
         }
 
+        // Funktion der viser hundene der er hentet
         function showDogs() {
+            // Ryd sektion for content
             dest.innerHTML = "";
+
+            // forEach metoden bruges til at loope gennem hver værdi
             dogs.feed.entry.forEach(dog => {
-                if (((filterSize == "alle" || filterSize == dog.gsx$size.$t) && (filterLiving == "alle" || filterLiving == dog.gsx$living.$t) && (filterTemperament == "alle" || filterTemperament == dog.gsx$temperament.$t))) {
+
+                if (((filterSize == "alle" || filterSize == dog.gsx$size.$t) &&
+                        (filterLiving == "alle" || filterLiving == dog.gsx$living.$t) &&
+                        (filterTemperament == "alle" || filterTemperament == dog.gsx$temperament.$t))) {
+
+                    // Sørger for at json data sættes ind på de rette elementer
                     const clone = temp.cloneNode(true).content;
                     clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
+
+                    // Sætter det rigtige billede url
                     clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
 
                     dest.appendChild(clone);
 
+                    //Retunere objektets sidste child element når click event finder sted
                     dest.lastElementChild.addEventListener("click", () => {
+
                         location.href = `singleview.html?race=${dog.gsx$race.$t}`
                     });
 
@@ -405,96 +454,81 @@
             })
         }
 
+        // Eventhandler på hvert knap indenfor filtreringsmuligheden størrelse - når click event finder sted kaldes function filtrering()
         function addEventListenersToSize() {
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.addEventListener("click", filtrering);
             })
-
-
         }
 
-
+        // Eventhandler på hvert knap indenfor filtreringsmuligheden levevilkår - når click event finder sted kaldes function filtrering2()
         function addEventListenersToLiving() {
             document.querySelectorAll(".filter2").forEach(elm => {
                 elm.addEventListener("click", filtrering2);
             })
-
-
         }
 
+        // Eventhandler på hvert knap indenfor filtreringsmuligheden opførelse - når click event finder sted kaldes function filtrering3()
         function addEventListenersToTemperament() {
             document.querySelectorAll(".filter3").forEach(elm => {
                 elm.addEventListener("click", filtrering3);
             })
-
-
         }
 
+        // denne funktion tilføjer en filtrerings mulighed mellem størrelser/size og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
         function filtrering() {
             console.log("filter1");
             filterSize = this.dataset.size;
 
-
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.classList.remove("chosen");
-
             });
+
             this.classList.add("chosen");
 
-
-
+            // Funktionen showDogs kaldes
             showDogs();
-
-
         }
 
+        // denne funktion tilføjer en filtrerings mulighed mellem levevilkår/living og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
         function filtrering2() {
             console.log("filter2");
             filterLiving = this.dataset.living;
 
             document.querySelectorAll(".filter2").forEach(elm => {
                 elm.classList.remove("chosen");
-
             });
+
             this.classList.add("chosen");
 
-
-
-
-
-
+            // Funktionen showDogs kaldes
             showDogs();
-
-
         }
 
+        // denne funktion tilføjer en filtrerings mulighed mellem opførelse/temperament og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
         function filtrering3() {
             console.log("filter3");
             filterTemperament = this.dataset.temperament;
 
             document.querySelectorAll(".filter3").forEach(elm => {
                 elm.classList.remove("chosen");
-
             });
+
             this.classList.add("chosen");
 
-
-
-
-
+            // Funktionen showDogs kaldes
             showDogs();
-
-
         }
 
-
+        // Viser eller skjuler burger menu
         function sidebarDisplay() {
             console.log("sidebarDisplay");
-            //toggle af class hide
+
+            // toggle af class hide
             document.querySelector("#sidebar").classList.toggle("hide");
+
             //Her tjekkes der om elementet indeholder class hide
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
-
         }
 
     </script>
