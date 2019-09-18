@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dogfinder</title>
+    <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
     <style>
         /* Font Face*/
 
@@ -91,12 +92,30 @@
         .search {
             margin: 10px;
             padding: 10px;
+
+
+        }
+
+        .chosen_nav {
+            color: #C4242E;
+        }
+
+        a {
+            color: black;
+            font-family: 'Manjari', sans-serif;
         }
 
         .dogsaz {
             margin: 10px;
             padding: 10px;
+        }
 
+        .filter_galleri {
+            padding: 15px;
+        }
+
+        a:hover {
+            color: #C4242E;
         }
 
         .logo {
@@ -204,6 +223,10 @@
 
         }
 
+        .chosen_letter {
+            background-color: #C4242E;
+        }
+
         /* MEDIA QUERY */
 
         /* Smartphone/Tablet*/
@@ -282,6 +305,25 @@
                 display: none;
             }
 
+            #nav_knapper {
+                padding-top: 1.4rem;
+            }
+
+            .filter_regler {
+                margin: 0.8rem;
+            }
+
+            button:hover {
+                background-color: #C4242E;
+                cursor: pointer;
+
+            }
+
+            .race_list {
+                margin-top: 0.5rem;
+            }
+
+
         }
     </style>
 </head>
@@ -300,8 +342,8 @@
         <!--Burgermenu vises kun mobil/tablet version-->
         <div id="menuknap"></div>
         <div id="sidebar" class="hide">
-            <a href="index.html">Forside</a>
-            <a href="abc.html">Dogs A-Z</a>
+            <a href="index.html">home</a>
+            <a href="abc.html">dogs a-z</a>
         </div>
 
         <!--skaber et input felt ved siden af searchknap-->
@@ -314,25 +356,23 @@
         <!--Navigationsmenu til desktopversion-->
         <nav>
             <div id="nav_knapper">
-                <a class="search">Search</a>
-                <a class="dogsaz" href="abc.html">Dogs a-z</a>
+                <a class="search" href="index.html">home</a>
+                <a class="dogsaz  chosen_nav" href="abc.html">dogs a-z</a>
+                <a class="filter_galleri" href="#filter_breeds">filter breeds</a>
             </div>
             <a href="index.html">
-                <img class="logo" src="imgs/logo.png" alt="DogFinder logo">
+                <img class="logo" src="imgs/dogfinder_logo.svg" alt="DogFinder logo">
             </a>
         </nav>
 
 
-        <img class="logo" src="" alt="">
+
 
     </header>
-    <section id="forside_pic">
-        <img src="imgs/dogs-01.06.jpg" alt="">
-    </section>
 
     <!--Filtreringsmenu-->
     <section id="filter_breeds">
-        <h1 class="red">Dogs A-Z</h1>
+        <h1 class="red">dogs a-z</h1>
 
         <!--Filtrerings muligheder er delt op indenfor denne container-->
         <div class="filter_options">
@@ -465,9 +505,9 @@
             console.log("filter1");
             filterLetter = this.dataset.alphabet;
             document.querySelectorAll(".filter").forEach(elm => {
-                elm.classList.remove("chosen");
+                elm.classList.remove("chosen_letter");
             });
-            this.classList.add("chosen");
+            this.classList.add("chosen_letter");
 
             // Funktionen showDogs kaldes
             showDogs();
