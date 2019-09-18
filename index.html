@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dogfinder</title>
+    <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
     <style>
         /* Font Face*/
 
@@ -82,6 +83,8 @@
             border-bottom: solid #C4242E;
             border-bottom-width: thin;
             justify-content: space-between;
+            font-family: 'Manjari', sans-serif;
+
 
         }
 
@@ -93,6 +96,11 @@
             margin: 10px;
             padding: 10px;
 
+
+        }
+
+        .chosen_nav {
+            color: #C4242E;
         }
 
         .dogsaz {
@@ -100,10 +108,19 @@
             padding: 10px;
         }
 
+        .filter_galleri {
+            padding: 15px;
+        }
+
+        a:hover {
+            color: #C4242E;
+        }
+
 
         .logo {
             width: 10vw;
             height: 10vh;
+            margin-right: 1.5rem;
         }
 
         #menuknap {
@@ -266,7 +283,18 @@
 
             nav {
                 display: flex;
+
             }
+
+            #nav_knapper {
+                padding-top: 1.4rem;
+            }
+
+            #forside_pic {
+                margin-top: 2rem;
+            }
+
+
 
 
             /* Gør search input feltet usynlig i desktop version*/
@@ -298,8 +326,8 @@
         <!--Burgermenu vises kun mobil/tablet version-->
         <div id="menuknap"></div>
         <div id="sidebar" class="hide">
-            <a href="index.html">Forside</a>
-            <a href="abc.html">Dogs A-Z</a>
+            <a href="index.html">home</a>
+            <a href="abc.html">dogs a-z</a>
         </div>
 
         <!--skaber et input felt ved siden af searchknap-->
@@ -311,10 +339,11 @@
         <!--Navigationsmenu til desktopversion-->
         <nav>
             <div id="nav_knapper">
-                <a class="search">Search</a>
-                <a class="dogsaz" href="abc.html">Dogs a-z</a>
+                <a class="search chosen_nav nav_button" href="index.html">home</a>
+                <a class="dogsaz nav_button" href="abc.html">dogs a-z</a>
+                <a class="filter_galleri nav_button" href="#filter_breeds">filter breeds</a>
             </div>
-            <img class="logo" src="imgs/logo.png" alt="DogFinder logo">
+            <img class="logo" src="imgs/dogfinder_logo.svg" alt="DogFinder logo">
         </nav>
 
     </header>
@@ -392,6 +421,7 @@
 
         // En eventhanlder som lytter efter at click eventet på burgermenuen finder sted
         document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
+
 
         // Funktion der henter json med data
         async function getJson() {
