@@ -305,15 +305,15 @@
 
 
     <script>
-        // Henter navnet på racen der skal vises fra url'en
+        //Erklærer variabler
         let urlParams = new URLSearchParams(window.location.search);
         let race = urlParams.get("race");
         let dogs;
 
-        // En listener der sættes igang når DOM'en er loaded hvor json hentes
+        //Når DOM'en er loaded henter den funktionen getJson
         document.addEventListener("DOMContentLoaded", getJson);
 
-        // En eventhanlder som lytter efter at click eventet på burgermenuen finder sted
+        //Gør det muligt at man kan klikke på burgermenuen
         document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
 
 

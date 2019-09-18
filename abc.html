@@ -330,7 +330,6 @@
 
 
         }
-
     </style>
 </head>
 
@@ -423,35 +422,32 @@
     <script>
         let dogs
 
-        // En sektion der viser de forskellige hunderacer
+        //Erklæring på variabler
         const dest = document.querySelector(".race_list");
 
-        // Template uden data, til at vise en hund hentes
         const temp = document.querySelector("template");
 
-        // alle størrelser skal vises ved start
+
         let filterSize = "alle";
 
-        // alle levevilkår skal vises ved start
+
         let filterLiving = "alle";
 
-        // alle opførelser skal vises ved start
+
         let filterTemperament = "alle";
 
-
-        // alle forbogstaver skal vises ved start
         let filterLetter = "alle";
 
 
-        // En listener der sættes igang når DOM'en er loaded hvor json hentes
+        //Når DOM'en er loaded henter den funktionen getJson
         document.addEventListener("DOMContentLoaded", getJson);
 
         document.querySelector(".filter").addEventListener("click", filtrering);
 
-        // En eventhanlder som lytter efter at click eventet på burgermenuen finder sted
+        //Gør det muligt at man kan klikke på burgermenuen
         document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
 
-        // Funktion der henter json med data
+        //Funktion der henter json med data
         async function getJson() {
             let jsonData = await
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
@@ -462,18 +458,18 @@
             // Funktionen showDogs  kaldes
             showDogs();
 
-            // Event listeners tilføjes så man kan sortere hunde på et filter med forbogstaver
+            // Funktionen addEventListernersToLetter kaldes
             addEventListenersToLetter();
         }
 
 
-        // Funktion der viser hundene der er hentet
+        //Viser alle hundene
         function showDogs() {
 
             // Ryd sektion for content
             dest.innerHTML = "";
 
-            // forEach metoden bruges til at loppe gennem hvert værdi
+            // forEach metoden bruges til at loope gennem hver værdi
             dogs.feed.entry.forEach(dog => {
 
                 if (((filterSize == "alle" || filterSize == dog.gsx$size.$t) && (filterLiving == "alle" || filterLiving == dog.gsx$living.$t) && (filterTemperament == "alle" || filterTemperament == dog.gsx$temperament.$t) && (filterLetter == "alle" || filterLetter == dog.gsx$alphabet.$t))) {
@@ -482,12 +478,12 @@
                     const clone = temp.cloneNode(true).content;
                     clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
 
-                    // Sætter det rigtige billede url
+                    // Henter billede fra google sheet
                     clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
 
                     dest.appendChild(clone);
 
-                    //Retunere objektets sidste child element når click event finder sted
+                    //Retunerer objektets sidste child element når click event finder sted
                     dest.lastElementChild.addEventListener("click", () => {
 
                         location.href = `singleview.html?race=${dog.gsx$race.$t}`
@@ -506,7 +502,7 @@
 
         }
 
-        // denne funktion tilføjer en filtrerings mulighed mellem forbogstaver og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
+        // denne funktion tilføjer en filtrerings mulighed mellem forbogstaver og fjerner/tilføjer classlist chosen_letter som skaber en markering af den valgte knap
         function filtrering() {
             console.log("filter1");
             filterLetter = this.dataset.alphabet;
@@ -529,11 +525,8 @@
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
 
 
 

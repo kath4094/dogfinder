@@ -426,25 +426,24 @@
     <script>
         let dogs;
 
-        // En sektion der viser de forskellige hunderacer
+        //Erklærer variabler
         const dest = document.querySelector(".race_list");
 
-        // Template uden data, til at vise en hund hentes
+
         const temp = document.querySelector("template");
 
-        // alle størrelser skal vises ved start
+
         let filterSize = "alle";
 
-        // alle levevilkår skal vises ved start
+
         let filterLiving = "alle";
 
-        // alle opførelser skal vises ved start
         let filterTemperament = "alle";
 
-        // En listener der sættes igang når DOM'en er loaded hvor json hentes
+        //Når DOM'en er loaded henter den funktionen getJson
         document.addEventListener("DOMContentLoaded", getJson);
 
-        // En eventhanlder som lytter efter at click eventet på burgermenuen finder sted
+        // En eventhandler der gør det muligt at klikke på menuknap
         document.querySelector("#menuknap").addEventListener("click", sidebarDisplay);
 
 
@@ -457,7 +456,7 @@
             // Venter på at json data indlæses
             dogs = await jsonData.json();
 
-            // Hunde vises
+            //Kalder funktionen showDogs
             showDogs();
 
             // Event listeners tilføjes så man kan sortere hunde på et filter med størelse, levevilkår og opførsel
@@ -466,7 +465,7 @@
             addEventListenersToTemperament();
         }
 
-        // Funktion der viser hundene der er hentet
+        // Funktion der viser alle hunde
         function showDogs() {
             // Ryd sektion for content
             dest.innerHTML = "";
@@ -478,16 +477,16 @@
                         (filterLiving == "alle" || filterLiving == dog.gsx$living.$t) &&
                         (filterTemperament == "alle" || filterTemperament == dog.gsx$temperament.$t))) {
 
-                    // Sørger for at json data sættes ind på de rette elementer
+                    // Sætter de rigtige elementer ind fra google sheet
                     const clone = temp.cloneNode(true).content;
                     clone.querySelector(".race_name").textContent = dog.gsx$race.$t;
 
-                    // Sætter det rigtige billede url
+
                     clone.querySelector(".billede").src = "imgs/small/" + dog.gsx$billede.$t + "-sm.jpg";
 
                     dest.appendChild(clone);
 
-                    //Retunere objektets sidste child element når click event finder sted
+                    //Retunerer objektets sidste child element når click event finder sted
                     dest.lastElementChild.addEventListener("click", () => {
 
                         location.href = `singleview.html?race=${dog.gsx$race.$t}`
@@ -518,7 +517,7 @@
             })
         }
 
-        // denne funktion tilføjer en filtrerings mulighed mellem størrelser/size og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
+        // denne funktion tilføjer en filtrerings mulighed mellem størrelser/size og fjerner/tilføjer classlist chosen_filter som skaber en markering af den valgte knap
         function filtrering() {
             console.log("filter1");
             filterSize = this.dataset.size;
