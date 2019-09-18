@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
     <style>
         /* FARVE CLASS*/
 
@@ -23,7 +24,8 @@
 
         img {
             width: 100%;
-            margin: 1.5rem auto;
+
+
         }
 
         /* TEKST */
@@ -38,12 +40,13 @@
         h2 {
             font-family: sans-serif;
             font-weight: 300;
-            color: red;
+            color: #C4242E;
         }
 
         a {
             font-size: 1.5rem;
             text-decoration-line: none;
+            font-family: 'Manjari', sans-serif;
 
         }
 
@@ -90,24 +93,39 @@
             justify-content: space-between;
         }
 
-        #nav_knapper {
-            margin: 20px;
-        }
+        #nav_knapper {}
 
         .search {
             margin: 10px;
             padding: 10px;
+
+
+        }
+
+        .chosen_nav {
+            color: #C4242E;
+        }
+
+        a {
+            color: black;
         }
 
         .dogsaz {
             margin: 10px;
             padding: 10px;
-            color: black;
+        }
+
+        .filter_galleri {
+            padding: 15px;
+        }
+
+        a:hover {
+            color: #C4242E;
         }
 
         .logo {
             width: 10vw;
-            height: ;
+            margin-right: 1.5rem;
 
         }
 
@@ -225,6 +243,10 @@
                 display: none;
             }
 
+            #nav_knapper {
+                padding-top: 1.4rem;
+            }
+
         }
     </style>
 </head>
@@ -249,17 +271,17 @@
         <!--Navigationsmenu til desktopversion-->
         <nav>
             <div id="nav_knapper">
-                <a class="search">Search</a>
-                <a class="dogsaz" href="abc.html">Dogs a-z</a>
+                <a class="search" href="index.html">home</a>
+                <a class="dogsaz" href="abc.html">dogs a-z</a>
+                <a class="filter_galleri chosen_nav" href="#filter_breeds">filter breeds</a>
             </div>
             <a href="index.html">
-                <img class="logo" src="imgs/logo.png" alt="DogFinder logo">
+                <img class="logo" src="imgs/dogfinder_logo.svg" alt="DogFinder logo">
             </a>
         </nav>
 
 
 
-        <img class="logo" src="" alt="">
 
     </header>
 
