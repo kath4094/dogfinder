@@ -31,9 +31,8 @@
         }
 
         /* Denne class markerer hvilke filtre man har i brug og bliver tilføjet/fjernet gennem funktionerne filtrering ,filtrering2 og filtrering3*/
-        .chosen {
-            background-color: #C4242E;
-        }
+
+
 
         /* BILLEDE*/
 
@@ -178,6 +177,7 @@
             justify-content: center;
             min-height: 50vh;
             max-width: 1400px;
+            margin-top: 0;
         }
 
         .data_dog {
@@ -194,32 +194,42 @@
             display: flex;
             justify-content: center;
             width: 100%;
+
         }
 
         .size {
-            width: 310px;
-            height: 100px;
+            width: 400px;
+            height: 150px;
+
+
+
         }
 
         .living {
-            width: 310px;
-            height: 100px;
+            width: 400px;
+            height: 150px;
             text-align: center;
+
+
 
         }
 
         .temperament {
-            width: 310px;
-            height: 100px;
+            width: 400px;
+            height: 150px;
             margin-bottom: 50px;
+
         }
 
         .filter_regler {
-            width: 100px;
-            height: 25px;
+            width: 130px;
+            height: 40px;
             background-color: rgba(228, 229, 228, 0.51);
             box-shadow: 2px 2px 2px 0px #E4E5E4;
             border: 1px;
+            font-size: 0.8rem;
+
+
         }
 
 
@@ -264,11 +274,17 @@
 
             .race_list {
                 grid-template-columns: repeat(4, 1fr);
+                margin-top: 0;
+            }
+
+            .chosen_filter {
+                background-color: #C4242E;
             }
 
 
             .filter_options {
                 display: flex;
+                margin-top: 3rem;
             }
 
             /* Gør burgermenu knap usynlig i desktop version*/
@@ -294,6 +310,15 @@
                 margin-top: 2rem;
             }
 
+            article:hover {
+                color: #C4242E;
+                cursor: pointer;
+            }
+
+            .filter_regler:hover {
+                cursor: pointer;
+            }
+
 
 
 
@@ -308,7 +333,6 @@
             }
 
         }
-
     </style>
 </head>
 
@@ -500,10 +524,10 @@
             filterSize = this.dataset.size;
 
             document.querySelectorAll(".filter").forEach(elm => {
-                elm.classList.remove("chosen");
+                elm.classList.remove("chosen_filter");
             });
 
-            this.classList.add("chosen");
+            this.classList.add("chosen_filter");
 
             // Funktionen showDogs kaldes
             showDogs();
@@ -515,10 +539,10 @@
             filterLiving = this.dataset.living;
 
             document.querySelectorAll(".filter2").forEach(elm => {
-                elm.classList.remove("chosen");
+                elm.classList.remove("chosen_filter");
             });
 
-            this.classList.add("chosen");
+            this.classList.add("chosen_filter");
 
             // Funktionen showDogs kaldes
             showDogs();
@@ -530,10 +554,10 @@
             filterTemperament = this.dataset.temperament;
 
             document.querySelectorAll(".filter3").forEach(elm => {
-                elm.classList.remove("chosen");
+                elm.classList.remove("chosen_filter");
             });
 
-            this.classList.add("chosen");
+            this.classList.add("chosen_filter");
 
             // Funktionen showDogs kaldes
             showDogs();
@@ -549,8 +573,5 @@
             //Her tjekkes der om elementet indeholder class hide
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
