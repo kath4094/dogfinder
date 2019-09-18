@@ -180,33 +180,31 @@
         }
 
         .filter_options {
-            display: flex;
+            display: grid;
             justify-content: center;
             width: 100%;
+
+            grid-template-rows: 1fr 1fr 1fr;
 
         }
 
         .size {
+            grid-area: size;
             width: 400px;
             height: 150px;
-
-
-
         }
 
         .living {
+            grid-area: living;
             width: 400px;
             height: 150px;
             text-align: center;
-
-
-
         }
 
         .temperament {
+            grid-area: temperament;
             width: 400px;
             height: 150px;
-            margin-bottom: 50px;
 
         }
 
@@ -242,7 +240,11 @@
             }
 
             .filter_options {
-                display: grid;
+                grid-template-areas:
+                    "size"
+                    "living"
+                    "temperament";
+
             }
 
             form {
@@ -273,8 +275,11 @@
             }
 
             .filter_options {
-                display: flex;
-                margin-top: 3rem;
+                display: grid;
+                grid-template-areas:
+                    "size living temperament"
+                    "size living temperament"
+                    "size living temperament";
             }
 
             /* Gør burgermenu knap usynlig i desktop version*/
