@@ -281,7 +281,6 @@
                 background-color: #C4242E;
             }
 
-
             .filter_options {
                 display: flex;
                 margin-top: 3rem;
@@ -299,7 +298,6 @@
 
             nav {
                 display: flex;
-
             }
 
             #nav_knapper {
@@ -318,9 +316,6 @@
             .filter_regler:hover {
                 cursor: pointer;
             }
-
-
-
 
             /* Gør search input feltet usynlig i desktop version*/
             form {
@@ -428,16 +423,11 @@
 
         //Erklærer variabler
         const dest = document.querySelector(".race_list");
-
-
         const temp = document.querySelector("template");
 
-
+        //Alt info om objekterne skal vises ved start
         let filterSize = "alle";
-
-
         let filterLiving = "alle";
-
         let filterTemperament = "alle";
 
         //Når DOM'en er loaded henter den funktionen getJson
@@ -450,7 +440,6 @@
         // Funktion der henter json med data
         async function getJson() {
             let jsonData = await
-
             fetch("https://spreadsheets.google.com/feeds/list/1IfUwf4LjJBNN_pd_FLkn92m57BKzkMHE-3CX33P7yUU/od6/public/values?alt=json");
 
             // Venter på at json data indlæses
@@ -519,7 +508,6 @@
 
         // denne funktion tilføjer en filtrerings mulighed mellem størrelser/size og fjerner/tilføjer classlist chosen_filter som skaber en markering af den valgte knap
         function filtrering() {
-            console.log("filter1");
             filterSize = this.dataset.size;
 
             document.querySelectorAll(".filter").forEach(elm => {
@@ -534,7 +522,6 @@
 
         // denne funktion tilføjer en filtrerings mulighed mellem levevilkår/living og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
         function filtrering2() {
-            console.log("filter2");
             filterLiving = this.dataset.living;
 
             document.querySelectorAll(".filter2").forEach(elm => {
@@ -549,7 +536,6 @@
 
         // denne funktion tilføjer en filtrerings mulighed mellem opførelse/temperament og fjerner/tilføjer classlist chosen som skaber en markering af den valgte knap
         function filtrering3() {
-            console.log("filter3");
             filterTemperament = this.dataset.temperament;
 
             document.querySelectorAll(".filter3").forEach(elm => {
@@ -564,7 +550,6 @@
 
         // Viser eller skjuler burger menu
         function sidebarDisplay() {
-            console.log("sidebarDisplay");
 
             // toggle af class hide
             document.querySelector("#sidebar").classList.toggle("hide");
