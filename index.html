@@ -227,10 +227,12 @@
         /* Smartphone/Tablet*/
         @media screen and (min-width:500px) {
 
+            /* Gør navigationsmenuen usynlig i smartphone/tablet version*/
             nav {
                 display: none;
             }
 
+            /* Gør burgermenuen synlig i smartphone/tablet version*/
             #menuknap {
                 display: flex;
             }
@@ -285,6 +287,7 @@
                 display: none;
             }
 
+            /* Gør navigationsmenuen synlig i desktop version*/
             nav {
                 display: flex;
             }
@@ -317,7 +320,6 @@
             }
 
         }
-
     </style>
 </head>
 
@@ -547,8 +549,5 @@
             //Her tjekkes der om elementet indeholder class hide
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
