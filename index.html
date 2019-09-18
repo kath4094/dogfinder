@@ -29,7 +29,7 @@
             display: none;
         }
 
-        /* Denne class marker hvilke filter man har i brug og bliver tilføjet/fjernet gennem funktionerne filtrering ,filtrering2 og filtrering3*/
+        /* Denne class markerer hvilke filtre man har i brug og bliver tilføjet/fjernet gennem funktionerne filtrering ,filtrering2 og filtrering3*/
         .chosen {
             background-color: #C4242E;
         }
@@ -419,7 +419,7 @@
             // Ryd sektion for content
             dest.innerHTML = "";
 
-            // forEach metoden bruges til at loppe gennem hvert værdi
+            // forEach metoden bruges til at loope gennem hver værdi
             dogs.feed.entry.forEach(dog => {
 
                 if (((filterSize == "alle" || filterSize == dog.gsx$size.$t) &&
