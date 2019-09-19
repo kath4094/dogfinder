@@ -82,10 +82,17 @@
 
         nav {
             display: flex;
-            border-bottom: solid #C4242E;
-            border-bottom-width: thin;
             font-family: sans-serif;
             justify-content: space-between;
+        }
+
+        #nav_knapper {
+            margin: 20px;
+            border-bottom: solid #C4242E;
+            border-bottom-width: 2px;
+            padding-bottom: 10px;
+
+
         }
 
         .search {
@@ -130,10 +137,11 @@
             float: left;
         }
 
-        #searchknap {
-            width: 1vw;
-            height: 1vw;
-            background-image: url(imgs/Path%20311@2x.png);
+        #logomenu {
+
+            width: 14vw;
+            height: 3.1vw;
+            background-image: url(imgs/dogfinder_logo.svg);
             background-size: 100%;
             margin: 15px;
             padding: 15px;
@@ -215,7 +223,7 @@
             }
 
             /* Gør search iconet usynlig i desktop version*/
-            #searchknap {
+            #logomenu {
                 display: none;
             }
 
@@ -237,7 +245,6 @@
             }
 
         }
-
     </style>
 </head>
 
@@ -247,16 +254,13 @@
         <!--Burgermenu vises kun mobil/tablet version-->
         <div id="menuknap"></div>
         <div id="sidebar" class="hide">
-            <a href="index.html">Forside</a>
-            <a href="abc.html">Dogs A-Z</a>
+            <a href="index.html">home</a>
+            <a href="abc.html">dogs a-z</a>
         </div>
 
         <!--skaber et input felt ved siden af searchknap-->
-        <form>
-            <input type="text" name="" value="Search">
 
-            <div id="searchknap"></div>
-        </form>
+        <div id="logomenu"></div>
 
         <!--Navigationsmenu til desktopversion-->
         <nav>
@@ -348,8 +352,5 @@
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
