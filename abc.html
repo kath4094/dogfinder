@@ -163,20 +163,29 @@
 
 
         #sidebar {
-            width: 300px;
-            height: 0.1px;
+            width: 100vw;
+            height: 100vh;
+            background-color: #C4242E;
+
+
         }
 
         #sidebar a {
-            color: #C4242E;
+            color: white;
             font-weight: 600;
             font-family: sans-serif;
             transition: 0.3s;
-            font-size: 1rem;
+            font-size: 2rem;
             cursor: pointer;
-            display: inline-block;
+            display: block;
             padding: 20px;
             text-decoration: none;
+            text-align: center;
+
+        }
+
+        .burger_knapper {
+            padding-top: 25vw;
         }
 
         #sidebar a:hover {
@@ -339,7 +348,6 @@
 
 
         }
-
     </style>
 </head>
 
@@ -357,8 +365,10 @@
         <!--Burgermenu vises kun mobil/tablet version-->
         <div id="menuknap"></div>
         <div id="sidebar" class="hide">
-            <a href="index.html">home</a>
-            <a href="abc.html">dogs a-z</a>
+            <div class="burger_knapper">
+                <a href="index.html">home</a>
+                <a href="abc.html">dogs a-z</a>
+            </div>
         </div>
 
 
@@ -531,12 +541,11 @@
             //Her tjekkes der om elementet indeholder class hide
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
+
+
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
 
 
 

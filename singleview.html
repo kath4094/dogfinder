@@ -15,6 +15,29 @@
 
         /* Diverse CLASS*/
 
+        .slide {
+            animation-name: sliding;
+            animation-timing-function: ease-in-out;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+
+
+        }
+
+
+        @keyframes sliding {
+
+            0% {
+                left: -40vw;
+            }
+
+
+            100% {
+                left: 0vw;
+
+            }
+        }
+
         .hide {
             display: none;
         }
@@ -54,15 +77,16 @@
         }
 
         #sidebar a {
-            color: #C4242E;
+            color: white;
             font-weight: 600;
             font-family: sans-serif;
             transition: 0.3s;
-            font-size: 1rem;
+            font-size: 2rem;
             cursor: pointer;
-            display: inline-block;
-            padding: 10px;
+            display: block;
+            padding: 20px;
             text-decoration: none;
+            text-align: center;
         }
 
         #sidebar a:hover {
@@ -86,11 +110,17 @@
             justify-content: space-between;
         }
 
+        .burger_knapper {
+            padding-top: 25vw;
+        }
+
+
         #nav_knapper {
             margin: 20px;
             border-bottom: solid #C4242E;
             border-bottom-width: 2px;
             padding-bottom: 10px;
+            position: relative;
 
 
         }
@@ -150,8 +180,9 @@
         }
 
         #sidebar {
-            width: 120px;
-            height: 10px;
+            width: 100vw;
+            height: 100vh;
+            background-color: #C4242E;
         }
 
         /* MEDIA QUERY */
@@ -175,17 +206,7 @@
                 display: flex;
             }
 
-            form {
-                position: relative;
-            }
 
-            input {
-                position: absolute;
-                right: 65px;
-                top: 25px;
-                width: 80px;
-                height: 15px;
-            }
 
         }
 
@@ -196,6 +217,7 @@
 
                 display: grid;
                 height: 100vh;
+                margin: 4rem auto;
 
                 grid-template-areas:
                     "sidebar sidebar header header header"
@@ -262,8 +284,11 @@
         <!--Burgermenu vises kun mobil/tablet version-->
         <div id="menuknap"></div>
         <div id="sidebar" class="hide">
-            <a href="index.html">home</a>
-            <a href="abc.html">dogs a-z</a>
+            <div class="burger_knapper">
+                <a href="index.html">home</a>
+                <a href="abc.html">dogs a-z</a>
+                <a href="index.html#filter_breeds">filter breeds</a>
+            </div>
         </div>
 
         <!--skaber et input felt ved siden af searchknap-->
@@ -272,10 +297,10 @@
 
         <!--Navigationsmenu til desktopversion-->
         <nav>
-            <div id="nav_knapper">
+            <div id="nav_knapper" class="slide">
                 <a class="search" href="index.html">home</a>
                 <a class="dogsaz" href="abc.html">dogs a-z</a>
-                <a class="filter_galleri chosen_nav" href="#filter_breeds">filter breeds</a>
+                <a class="filter_galleri chosen_nav" href="index.html#filter_breeds">filter breeds</a>
             </div>
             <a href="index.html">
                 <img class="logo" src="imgs/dogfinder_logo.svg" alt="DogFinder logo">
