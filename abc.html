@@ -9,6 +9,29 @@
     <style>
         /* Diverse CLASS*/
 
+        .slide {
+            animation-name: sliding;
+            animation-timing-function: ease-in-out;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+
+
+        }
+
+
+        @keyframes sliding {
+
+            0% {
+                left: -40vw;
+            }
+
+
+            100% {
+                left: 0vw;
+
+            }
+        }
+
         /* Denne classe er sat ind i html for at ændre på skriftens farve*/
         .red {
             color: #C4242E;
@@ -70,13 +93,17 @@
 
         nav {
             display: flex;
-            border-bottom: solid #C4242E;
-            border-bottom-width: thin;
-            justify-content: space-between
+            justify-content: space-between;
+
+
         }
 
         #nav_knapper {
-            margin: 20px
+            margin: 20px;
+            border-bottom: solid #C4242E;
+            border-bottom-width: 2px;
+            padding-bottom: 10px;
+            position: relative;
         }
 
         .search {
@@ -123,11 +150,11 @@
             float: left;
         }
 
-        #searchknap {
+        #logomenu {
 
-            width: 1vw;
-            height: 1vw;
-            background-image: url(imgs/Path%20311@2x.png);
+            width: 14vw;
+            height: 3.1vw;
+            background-image: url(imgs/dogfinder_logo.svg);
             background-size: 100%;
             margin: 15px;
             padding: 15px;
@@ -263,7 +290,7 @@
             }
 
             /* Gør search iconet usynlig i desktop version*/
-            #searchknap {
+            #logomenu {
                 display: none;
             }
 
@@ -295,7 +322,7 @@
             }
 
             button:hover {
-                background-color: #C4242E;
+                background-color: rgba(196, 36, 46, 0.67);
                 cursor: pointer;
 
             }
@@ -303,6 +330,7 @@
             article:hover {
                 color: #C4242E;
                 cursor: pointer;
+                transform: scale(1.1);
             }
 
             .race_list {
@@ -311,6 +339,7 @@
 
 
         }
+
     </style>
 </head>
 
@@ -332,19 +361,16 @@
             <a href="abc.html">dogs a-z</a>
         </div>
 
-        <!--skaber et input felt ved siden af searchknap-->
-        <form>
-            <input type="text" name="" value="Search">
 
-            <div id="searchknap"></div>
-        </form>
+
+        <div id="logomenu"></div>
 
         <!--Navigationsmenu til desktopversion-->
         <nav>
-            <div id="nav_knapper">
+            <div id="nav_knapper" class="slide">
                 <a class="search" href="index.html">home</a>
                 <a class="dogsaz  chosen_nav" href="abc.html">dogs a-z</a>
-                <a class="filter_galleri" href="#filter_breeds">filter breeds</a>
+                <a class="filter_galleri" href="index.html#filter_breeds">filter breeds</a>
             </div>
             <a href="index.html">
                 <img class="logo" src="imgs/dogfinder_logo.svg" alt="DogFinder logo">
@@ -506,8 +532,11 @@
             let menuKnapErSkjult = document.querySelector("#sidebar").classList.contains("hide");
 
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
 
 
 

@@ -9,6 +9,29 @@
     <style>
         /* Diverse CLASS*/
 
+        .slide {
+            animation-name: sliding;
+            animation-timing-function: ease-in-out;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+
+
+        }
+
+
+        @keyframes sliding {
+
+            0% {
+                left: -40vw;
+            }
+
+
+            100% {
+                left: 0vw;
+
+            }
+        }
+
         /* Denne classe er sat ind i html for at ændre på skriftens farve*/
         .red {
             color: #C4242E;
@@ -69,7 +92,8 @@
         nav {
             display: flex;
             justify-content: space-between;
-            font-family: 'Manjari', sans-serif;
+
+
 
 
         }
@@ -79,6 +103,10 @@
             border-bottom: solid #C4242E;
             border-bottom-width: 2px;
             padding-bottom: 10px;
+            font-family: 'Manjari', sans-serif;
+            position: relative;
+
+
         }
 
         .search {
@@ -264,7 +292,7 @@
             }
 
             .chosen_filter {
-                background-color: #C4242E;
+                background-color: rgba(196, 36, 46, 0.67);
             }
 
             .filter_options {
@@ -301,6 +329,7 @@
             article:hover {
                 color: #C4242E;
                 cursor: pointer;
+                transform: scale(1.1);
             }
 
             .filter_regler:hover {
@@ -346,7 +375,7 @@
 
         <!--Navigationsmenu til desktopversion-->
         <nav>
-            <div id="nav_knapper">
+            <div id="nav_knapper" class="slide">
                 <a class="search chosen_nav" href="index.html">home</a>
                 <a class="dogsaz" href="abc.html">dogs a-z</a>
                 <a class="filter_galleri" href="#filter_breeds">filter breeds</a>
